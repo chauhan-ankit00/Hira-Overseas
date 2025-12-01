@@ -1,0 +1,7 @@
+/* Global styles */
+@import url('/css/bootstrap.min.css');
+@import url('/css/style.css');
+*{
+    font-family: 'Roboto';
+    
+}
