@@ -59,7 +59,7 @@ export default function NavbarHero() {
           className="navbar-brand p-0"
           onClick={handleScrollTo("home")}
         >
-          <h1 className="m-0" style={{ fontFamily:'roboto' }}>Hira Enterprises</h1>
+          <h1 className="m-0" style={{ fontFamily:'roboto' }}>Hira Overseas</h1>
         </a>
 
         <button
@@ -127,7 +127,7 @@ export default function NavbarHero() {
                 Specialized Nursing Recruitment & Consulting for Modern Healthcare Needs
               </h1>
               <p className="text-white pb-3 animated zoomIn" style={{ fontSize: "20px" }}>
-                Hira Enterprises provides streamlined nursing recruitment and consulting services to meet the growing demands of hospitals, clinics, and healthcare centers. We ensure that the right professionals are placed in the right roles with confidence.
+                Hira Overseas provides streamlined nursing recruitment and consulting services to meet the growing demands of hospitals, clinics, and healthcare centers. We ensure that the right professionals are placed in the right roles with confidence.
               </p>
             </div>
 

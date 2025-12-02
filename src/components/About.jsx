@@ -28,7 +28,7 @@ export default function About() {
             </h2>
 
             <p className="mb-4"style={{ fontSize:'18px' }}>
-              Hira Enterprises specializes in providing reliable, skilled, and qualified nursing professionals to hospitals, clinics, and healthcare institutions across the region. With a strong focus on quality, compliance, and patient-centered care, we help healthcare organizations overcome staffing shortages and achieve better workforce efficiency.
+              Hira Overseas specializes in providing reliable, skilled, and qualified nursing professionals to hospitals, clinics, and healthcare institutions across the region. With a strong focus on quality, compliance, and patient-centered care, we help healthcare organizations overcome staffing shortages and achieve better workforce efficiency.
             </p>
 
             <div className="row g-3 mb-4">

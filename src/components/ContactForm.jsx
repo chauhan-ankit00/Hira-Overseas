@@ -22,12 +22,6 @@ export default function ContactForm() {
         {/* Form */}
         <div className="row justify-content-center">
           <div className="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
-            <p className="text-center mb-4">
-              The contact form is currently inactive. Get a functional and
-              working contact form with Ajax &amp; PHP in a few minutes. Just
-              copy and paste the files, add a little code and you're done.{" "}
-              <a href="https://htmlcodex.com/contact-form">Download Now</a>.
-            </p>
 
             <form>
               <div className="row g-3">
@@ -81,6 +75,19 @@ export default function ContactForm() {
                       style={{ height: "150px" }}
                     ></textarea>
                     <label htmlFor="message">Message</label>
+                  </div>
+                </div>
+
+                {/* Resume/CV Upload */}
+                <div className="col-12">
+                  <div className="form-floating">
+                    <input
+                      type="file"
+                      className="form-control"
+                      id="resume"
+                      accept=".pdf,.doc,.docx"
+                    />
+                    <label htmlFor="resume">Upload Resume / CV</label>
                   </div>
                 </div>
 

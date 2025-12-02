@@ -20,7 +20,7 @@ export default function Features() {
             </h2>
 
             <p style={{fontSize:"18px"}}>
-              Hira Enterprises has earned a reputation for delivering reliable, skilled, and compliant nursing professionals to healthcare institutions. Our commitment to quality, transparency, and seamless recruitment makes us a preferred partner for hospitals, clinics, and medical centers seeking dependable staffing solutions.
+              Hira Overseas has earned a reputation for delivering reliable, skilled, and compliant nursing professionals to healthcare institutions. Our commitment to quality, transparency, and seamless recruitment makes us a preferred partner for hospitals, clinics, and medical centers seeking dependable staffing solutions.
 
             </p>
 
