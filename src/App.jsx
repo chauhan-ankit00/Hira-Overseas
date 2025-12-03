@@ -11,12 +11,12 @@ import ContactForm from './components/ContactForm.jsx'
 import Team from './components/Team.jsx'
 import Testimonial from './components/Testimonial.jsx'
 import Blog from './components/Blog.jsx'
-
+import GallerySection from './components/GallerySection.jsx'
 export default function App() {
   return (
     <>
-    
-    <NavbarHero />
+    <GallerySection />
+    {/* <NavbarHero />
       <About />
       <Newsletter />
       <Service />
@@ -32,7 +32,7 @@ export default function App() {
       <Blog />
       <ContactForm />
       
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

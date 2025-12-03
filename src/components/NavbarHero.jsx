@@ -4,25 +4,24 @@ export default function NavbarHero() {
   const NAV_OFFSET = 80;
   const [activeSection, setActiveSection] = useState("home");
 
-  const handleScrollTo = (sectionId) => (e) => {
-    e.preventDefault();
+  // ⭐ Typing Animation
+  const fullText =
+    "Specialized Nursing Recruitment & Consulting for Modern Healthcare Needs";
+  const [typedText, setTypedText] = useState("");
 
-    const target = document.getElementById(sectionId);
-    if (!target) return;
+  useEffect(() => {
+    let index = 0;
+    const speed = 50;
 
-    const yOffset =
-      target.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
+    const timer = setInterval(() => {
+      setTypedText(fullText.slice(0, index));
+      index++;
 
-    window.scrollTo({ top: yOffset, behavior: "smooth" });
+      if (index > fullText.length) clearInterval(timer);
+    }, speed);
 
-    setActiveSection(sectionId); // ⭐ Set active section
-
-    // close mobile menu if open
-    const collapseEl = document.getElementById("navbarCollapse");
-    if (collapseEl && collapseEl.classList.contains("show")) {
-      collapseEl.classList.remove("show");
-    }
-  };
+    return () => clearInterval(timer);
+  }, []);
 
   // ⭐ Detect active section on scroll
   useEffect(() => {
@@ -52,14 +51,33 @@ export default function NavbarHero() {
   return (
     <div className="container-xxl position-relative p-0">
 
+      {/* ================= CSS INSIDE THIS FILE ================= */}
+      <style>{`
+        .typing-cursor {
+          display: inline-block;
+          width: 2px;
+          background: #fff;
+          animation: blink 0.7s steps(1) infinite;
+          margin-left: 3px;
+        }
+
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+      `}</style>
+      {/* ======================================================== */}
+
       {/* ===== Navbar ===== */}
       <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a
           href="#home"
           className="navbar-brand p-0"
-          onClick={handleScrollTo("home")}
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+          }}
         >
-          <h1 className="m-0" style={{ fontFamily:'roboto' }}>Hira Overseas</h1>
+          <h1 className="m-0" style={{ fontFamily: "roboto" }}>Hira Overseas</h1>
         </a>
 
         <button
@@ -77,7 +95,10 @@ export default function NavbarHero() {
             <a
               href="#home"
               className={getLinkClass("home")}
-              onClick={handleScrollTo("home")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Home
             </a>
@@ -85,7 +106,10 @@ export default function NavbarHero() {
             <a
               href="#about"
               className={getLinkClass("about")}
-              onClick={handleScrollTo("about")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+              }}
             >
               About
             </a>
@@ -93,7 +117,10 @@ export default function NavbarHero() {
             <a
               href="#service"
               className={getLinkClass("service")}
-              onClick={handleScrollTo("service")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("service").scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Service
             </a>
@@ -101,7 +128,10 @@ export default function NavbarHero() {
             <a
               href="#contact"
               className={getLinkClass("contact")}
-              onClick={handleScrollTo("contact")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Contact
             </a>
@@ -122,23 +152,39 @@ export default function NavbarHero() {
         <div className="container">
           <div className="row g-5 align-items-center">
 
-            <div className="col-lg-6 text-center text-lg-start" style={{ marginTop: "-40px" }}>
-              <h1 className="text-white mb-4 animated zoomIn"style={{ fontFamily:'roboto' }}>
-                Specialized Nursing Recruitment & Consulting for Modern Healthcare Needs
+            {/* LEFT SIDE TEXT */}
+            <div
+              className="col-lg-6 text-center text-lg-start"
+              style={{ marginTop: "-40px" }}
+            >
+              {/* ⭐ Typing Text */}
+              <h1 className="text-white mb-4" style={{ fontFamily: "roboto" }}>
+                {typedText}
+                <span className="typing-cursor"></span>
               </h1>
-              <p className="text-white pb-3 animated zoomIn" style={{ fontSize: "20px" }}>
-                Hira Overseas provides streamlined nursing recruitment and consulting services to meet the growing demands of hospitals, clinics, and healthcare centers. We ensure that the right professionals are placed in the right roles with confidence.
+
+              <p
+                className="text-white pb-3 animated zoomIn"
+                style={{ fontSize: "20px" }}
+              >
+                Hira Overseas provides streamlined nursing recruitment and
+                consulting services to meet the growing demands of hospitals,
+                clinics, and healthcare centers. We ensure that the right
+                professionals are placed in the right roles with confidence.
               </p>
             </div>
 
-            <div className="col-lg-6 text-center text-lg-start" style={{ marginTop: "-40px" }}>
+            {/* RIGHT SIDE IMAGE */}
+            <div
+              className="col-lg-6 text-center text-lg-start"
+              style={{ marginTop: "-40px" }}
+            >
               <img
                 className="img-fluid animated zoomIn"
                 src="img/img1.png"
                 alt="Hero Illustration"
               />
             </div>
-
 
           </div>
         </div>
