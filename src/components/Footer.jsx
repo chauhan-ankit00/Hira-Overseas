@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -39,21 +40,21 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="col-md-6 col-lg-3">
             <h5 className="text-white mb-4">Quick Link</h5>
-            <a className="btn btn-link" href="#about">About Us</a>
-            <a className="btn btn-link" href="#contact">Contact Us</a>
-            <a className="btn btn-link" href="#service">Services</a>
+            <Link className="btn btn-link" to="/about">About Us</Link>
+            <Link className="btn btn-link" to="/contact">Contact Us</Link>
+            <Link className="btn btn-link" to="/services">Services</Link>
             <a className="btn btn-link" href="#">Terms & Condition</a>
-            <a className="btn btn-link" href="#">Career</a>
+            <Link className="btn btn-link" to="/career">Career</Link>
           </div>
 
           {/* Popular Links */}
           <div className="col-md-6 col-lg-3">
             <h5 className="text-white mb-4">Popular Link</h5>
-            <a className="btn btn-link" href="#">About Us</a>
-            <a className="btn btn-link" href="#">Contact Us</a>
+            <Link className="btn btn-link" to="/about">About Us</Link>
+            <Link className="btn btn-link" to="/contact">Contact Us</Link>
             <a className="btn btn-link" href="#">Privacy Policy</a>
             <a className="btn btn-link" href="#">Terms & Condition</a>
-            <a className="btn btn-link" href="#">Career</a>
+            <Link className="btn btn-link" to="/career">Career</Link>
           </div>
 
           {/* Newsletter */}

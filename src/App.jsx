@@ -1,44 +1,33 @@
 import React from 'react'
-import About from './components/About.jsx'
-import Client from './components/Client.jsx'
-import Features from './components/Features.jsx'
-import Footer from './components/Footer.jsx'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar.jsx'
 import NavbarHero from './components/NavbarHero.jsx'
-import Newsletter from './components/Newsletter.jsx'
-import Service from './components/Service.jsx'
-import ContactForm from './components/ContactForm.jsx'
-import Team from './components/Team.jsx'
-import Testimonial from './components/Testimonial.jsx'
-import Blog from './components/Blog.jsx'
-import Countries from './components/Countries.jsx'
-import Career from './components/Career.jsx'
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import ServicesPage from './pages/ServicesPage.jsx'
+import CareerPage from './pages/CareerPage.jsx'
+import TestimonialPage from './pages/TestimonialPage.jsx'
+import CountriesPage from './pages/CountriesPage.jsx'
+import ContactPage from './pages/ContactPage.jsx'
 
 export default function App() {
   return (
-    <>
-    
-     <NavbarHero />
-      <About />
-      {/* <Newsletter /> */}
-      <Service />
-      <Features />
-      <Career/>
-      {/* <Client /> */}
-      
-      
-      
-      
-      <Testimonial />
-
-      
-      <Team />
-      <Blog />
-      
-      <Countries/>
-      <ContactForm />
-      
-      <Footer /> 
-    </>
+    <Router>
+      <Navbar />
+      <NavbarHero />
+      <div style={{ paddingTop: '80px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/career" element={<CareerPage />} />
+          <Route path="/testimonial" element={<TestimonialPage />} />
+          <Route path="/countries" element={<CountriesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
   )
 }
