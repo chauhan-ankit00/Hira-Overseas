@@ -34,7 +34,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <div className="container-xxl py-6">
+    <div className="container-xxl py-6" id="testinomial">
       <div className="container">
         <div
           className="mx-auto text-center"

@@ -20,7 +20,8 @@ export default function Features() {
             </h2>
 
             <p style={{fontSize:"18px"}}>
-              Hira Overseas has earned a reputation for delivering reliable, skilled, and compliant nursing professionals to healthcare institutions. Our commitment to quality, transparency, and seamless recruitment makes us a preferred partner for hospitals, clinics, and medical centers seeking dependable staffing solutions.
+              With licensed recruitment practices, thorough candidate evaluation, and a worldwide presence, we ensure a transparent and efficient pathway to international career opportunities.
+
 
             </p>
 
@@ -31,7 +32,7 @@ export default function Features() {
 
           {/* Right Section */}
           <div className="col-lg-7">
-            <div className="row g-5">
+            <div className="row g-5 justify-content-center"  >
 
               {/* Feature Item 1 */}
               <div
@@ -42,10 +43,10 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-cubes text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Best In Industry</h6>
+                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Licensed & Ethical Recruitment</h6>
                 </div>
                 <span style={{fontSize:"18px"}}>
-                 We specialize in nursing recruitment, ensuring every candidate is thoroughly screened, qualified, and fit for clinical environments.
+                 We operate with full legal compliance and strict ethical standards, ensuring transparent processes with zero hidden charges.
 
                 </span>
               </div>
@@ -59,11 +60,11 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-percent text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>99% Success Rate</h6>
+                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Rigorous Screening Standards</h6>
                 </div>
                 <span style={{fontSize:"18px"}}>
-                  Our structured recruitment process ensures fast and accurate placement, helping healthcare organizations maintain uninterrupted patient care.
-                </span>
+                  Every candidate undergoes a multi-stage evaluation, including skill verification, background checks, and role-specific assessments for the highest placement quality.
+                  </span>
               </div>
 
               {/* Feature Item 3 */}
@@ -75,11 +76,10 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-award text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Award Winning</h6>
+                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Accelerated Visa & Deployment</h6>
                 </div>
                 <span style={{fontSize:"18px"}}>
-                  Our excellence in healthcare staffing and consulting has been acknowledged by partners, clients, and industry bodies.
-
+                  Our dedicated documentation and processing team ensures fast, hassle-free visa approvals and timely international deployment.
                 </span>
               </div>
 
@@ -92,11 +92,10 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-smile-beam text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>100% Happy Client</h6>
+                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Worldwide Network of Employers</h6>
                 </div>
                 <span style={{fontSize:"18px"}}>
-                  We prioritize long-term partnerships and deliver reliable staffing solutions that healthcare providers trust.
-
+                  We partner with leading healthcare, engineering, and technical organizations across the Middle East, Europe, and other global regions to provide diverse opportunities.
                 </span>
               </div>
 
@@ -109,29 +108,14 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-user-tie text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>Professional Advisors</h6>
+                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>End-to-End Candidate Management</h6>
                 </div>
                 <span style={{fontSize:"18px"}}>
-                  Our team includes skilled consultants with deep knowledge of healthcare operations, compliance, and staffing requirements.
-
+                  From application and interviews to documentation, travel assistance, and post-placement support—we guide candidates through every step of their overseas journey.
                 </span>
               </div>
 
-              {/* Feature Item 6 */}
-              <div
-                className="col-sm-6 wow fadeIn"
-                data-wow-delay="0.6s"
-              >
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-headset text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{fontSize:"20px",fontFamily:"roboto"}}>24/7 Customer Support</h6>
-                </div>
-                <span style={{fontSize:"18px"}}>
-                  We offer round-the-clock support to both clients and candidates, ensuring smooth communication and timely resolution of needs.
-                </span>
-              </div>
+              
 
             </div>
           </div>

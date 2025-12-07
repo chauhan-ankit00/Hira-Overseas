@@ -11,6 +11,8 @@ import ContactForm from './components/ContactForm.jsx'
 import Team from './components/Team.jsx'
 import Testimonial from './components/Testimonial.jsx'
 import Blog from './components/Blog.jsx'
+import Countries from './components/Countries.jsx'
+import Career from './components/Career.jsx'
 
 export default function App() {
   return (
@@ -18,18 +20,22 @@ export default function App() {
     
      <NavbarHero />
       <About />
-      <Newsletter />
+      {/* <Newsletter /> */}
       <Service />
       <Features />
-      <Client />
+      <Career/>
+      {/* <Client /> */}
       
       
       
       
       <Testimonial />
+
       
       <Team />
       <Blog />
+      
+      <Countries/>
       <ContactForm />
       
       <Footer /> 

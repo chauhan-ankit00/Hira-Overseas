@@ -11,7 +11,7 @@ export default function About() {
             className="col-lg-6 wow zoomIn"
             data-wow-delay="0.1s"
           >
-            <img className="img-fluid" src="img/about.png" alt="About" style={{borderRadius:'150px'}}/>
+            <img className="img-fluid" src="img/about.png" alt="About" style={{ borderRadius: '150px' }} />
           </div>
 
           {/* Right Content */}
@@ -23,12 +23,15 @@ export default function About() {
               About Us
             </div>
 
-            <h2 className="mb-4" style={{ fontFamily:'roboto' }}>
-              Trusted Nursing Recruitment & Healthcare Consulting Partner
+            <h2 className="mb-4" style={{ fontFamily: 'roboto' }}>
+              Connecting Skilled Talent With the World
             </h2>
 
-            <p className="mb-4"style={{ fontSize:'18px' }}>
-              Hira Overseas specializes in providing reliable, skilled, and qualified nursing professionals to hospitals, clinics, and healthcare institutions across the region. With a strong focus on quality, compliance, and patient-centered care, we help healthcare organizations overcome staffing shortages and achieve better workforce efficiency.
+            <p className="mb-4" style={{ fontSize: '18px' }}>
+              We are a global manpower consultancy specialising in the deployment of healthcare, engineering, technical, and skilled blue-collar professionals. With a strong presence in India and partnerships across the Middle East, Europe, and Africa, we deliver workforce solutions that meet the highest international standards.
+            </p>
+            <p className="mb-4" style={{ fontSize: '18px' }}>
+              Our approach combines precision recruitment, ethical practices, and a deep understanding of industry demands
             </p>
 
             <div className="row g-3 mb-4">
@@ -39,9 +42,10 @@ export default function About() {
                   <i className="fa fa-user-tie text-white"></i>
                 </div>
                 <div className="ms-4">
-                  <h6 style={{ fontFamily:'roboto' ,fontSize:'20px'}}>Nursing Workforce Planning</h6>
-                  <span style={{ fontSize:'18px' }}>
-                    We assist hospitals and clinics in understanding their staffing needs, forecasting workforce demands, and creating customized nursing staffing plans. Our planning strategies help improve operational efficiency and reduce staffing-related challenges.
+                  <h6 style={{ fontFamily: 'roboto', fontSize: '20px' }}>Mission</h6>
+                  <span style={{ fontSize: '18px' }}>
+                    To connect exceptional talent with reputable global employers through integrity, quality, and efficiency.
+
                   </span>
                 </div>
               </div>
@@ -52,16 +56,16 @@ export default function About() {
                   <i className="fa fa-chart-line text-white"></i>
                 </div>
                 <div className="ms-4">
-                  <h6 style={{ fontFamily:'roboto', fontSize:'20px' }}>Healthcare Staffing & Skill Assessment</h6>
-                  <span style={{ fontSize:'18px' }}>
-                    We evaluate candidates through a structured qualification, skill verification, and screening process to ensure that only the most capable professionals reach your facility. Our consultants provide insights to help you select the right nursing staff with confidence.
+                  <h6 style={{ fontFamily: 'roboto', fontSize: '20px' }}>Vision</h6>
+                  <span style={{ fontSize: '18px' }}>
+                    To become a leading international manpower partner known for reliability, compliance, and service excellence.
                   </span>
                 </div>
               </div>
 
             </div>
 
-            
+
           </div>
         </div>
       </div>

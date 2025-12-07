@@ -5,58 +5,62 @@ export default function Service() {
     {
       icon: "fa fa-user-tie fa-2x",
       delay: "0.1s",
-      title: "Nursing Recruitment & Placement",
-      text:
-        "We connect hospitals, clinics, and care centers with qualified nursing professionals. Our team ensures each candidate is assessed, verified, and matched to the right role for maximum efficiency and patient care impact.",
+      title: "Medical & Healthcare Recruitment",
+      desc: "We supply qualified and licensed professionals:",
+      items: [
+        "Doctors & Specialists",
+        "Registered Nurses",
+        "Paramedical & Clinical Support Staff",
+        "Laboratory, Radiology, and Pharmacy Professionals",
+      ],
+      other:
+        "Our medical sourcing ensures clinical competence, global compliance, and employer-focused matching.",
     },
     {
-      icon: "fa fa-chart-pie fa-2x",
-      delay: "0.3s",
-      title: "Workforce Planning & Scheduling",
-      text:
-        "We help healthcare organizations forecast staffing needs, optimize shift structures, and maintain adequate nurse-to-patient ratios—ensuring smooth workflow and improved care delivery.",
+      icon: "fa fa-cogs fa-2x",
+      delay: "0.1s",
+      title: "Engineering & Technical Recruitment",
+      desc: "We provide certified technical professionals, including:",
+      items: [
+        "Mechanical, Electrical & Civil Engineers",
+        "IT & Software Engineers",
+        "Plant, Maintenance, and Technical Technicians",
+      ],
+      other: "Each candidate undergoes skill verification and background evaluation.",
     },
     {
-      icon: "fa fa-chart-line fa-2x",
-      delay: "0.6s",
-      title: "HR & Legal Advisory for Healthcare Staffing",
-      text:
-        "Our experts provide guidance on contract management, documentation, labor regulations, and healthcare staffing policies—ensuring smooth onboarding and legally compliant recruitment.",
+      icon: "fa fa-hard-hat fa-2x",
+      delay: "0.1s",
+      title: "Skilled Blue-Collar Workforce",
+      desc:
+        "We deploy trained manpower across construction, manufacturing, and facility management sectors:",
+      items: [
+        "Electricians",
+        "Plumbers, Masons, Carpenter",
+        "Welders, Steel Fixers",
+        "AC & HVAC Technicians",
+        "Heavy Vehicle Drivers",
+        "General Helpers & Labour",
+      ],
+      other:
+        "Our skilled workforce is trade-tested and mobilised quickly for urgent project demands.",
+    },
+    {
+      icon: "fa fa-briefcase-medical fa-2x",
+      delay: "0.1s",
+      title: "Paramedical & Support Staff",
+      desc:
+        "We provide trained paramedical and support professionals for essential healthcare services:",
+      items: ["Lab Technicians", "Radiographer", "OT Technicians", "Emergency Medical Staff", "Physiotherapy Assistants"],
+      other: "Ensuring dependable assistance and skilled clinical support.",
     },
   ];
 
-  const countries = [
-    {
-      title: "OMAN",
-      text:
-        "Why not start a successful Nursing career in Oman? Explore a multitude of amazing opportunities to enrich your life and career.",
-    },
-    {
-      title: "QATAR",
-      text:
-        "Our extensive connections with leading healthcare institutions in Qatar provide exclusive access to a wide range of nursing opportunities.",
-    },
-    {
-      title: "BAHRAIN",
-      text:
-        "Join our vibrant community of expat nurses in Bahrain, where camaraderie and professional growth flourish.",
-    },
-    {
-      title: "DUBAI",
-      text:
-        "Dubai Nursing vacancies are waiting for you! If you are a qualified nurse, you can start your nursing career in Dubai.",
-    },
-    {
-      title: "SAUDI",
-      text:
-        "Saudi Arabia provides various exciting Nursing vacancies to help you grow in your career. Enjoy excellent salary and living benefits.",
-    },
-  ];
+
 
   return (
     <div className="container-xxl py-6" id="service">
       <div className="container">
-
         {/* SECTION 1: SERVICES */}
         <div
           className="mx-auto text-center wow fadeInUp"
@@ -67,20 +71,23 @@ export default function Service() {
             Our Services
           </div>
           <h2 className="mb-5" style={{ fontFamily: "roboto" }}>
-            We Provide Reliable Staffing & Consulting Solutions for Healthcare Organizations
+            Providing Reliable Manpower for Every Sector
           </h2>
         </div>
 
         {/* Services Grid */}
-        <div className="row g-4">
+        <div className="row g-4 align-items-stretch">
           {services.map((s, idx) => (
             <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
+              className="col-lg-6 col-md-6 wow fadeInUp d-flex"
               data-wow-delay={s.delay}
               key={idx}
             >
-              <div className="service-item rounded h-100">
-                <div className="d-flex justify-content-between">
+              <div
+                className="service-item rounded h-100 d-flex flex-column w-100"
+                style={{ padding: "20px" }}
+              >
+                <div className="d-flex justify-content-between mb-3">
                   <div className="service-icon">
                     <i className={s.icon}></i>
                   </div>
@@ -88,60 +95,94 @@ export default function Service() {
                     <i className="fa fa-link fa-2x"></i>
                   </a>
                 </div>
-                <div className="p-5">
+
+                <div className="p-4 flex-grow-1">
                   <h5 className="mb-3" style={{ fontFamily: "roboto" }}>
                     {s.title}
                   </h5>
-                  <span style={{ fontSize: "18px" }}>{s.text}</span>
+
+                  <p style={{ fontSize: "17px", marginBottom: "8px" }}>
+                    {s.desc}
+                  </p>
+
+                  <ul
+                    style={{
+                      fontSize: "16px",
+                      color: "#333",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    {s.items.map((li, i) => (
+                      <li key={i}>{li}</li>
+                    ))}
+                  </ul>
+
+                  <p style={{ fontSize: "15px", color: "#555" }}>{s.other}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* SECTION 2: WHERE YOU CAN START */}
-        <div className="mt-5 pt-5">
-          <h2
-            className="text-center mb-5"
-            style={{
-              fontFamily: "roboto",
-              fontSize: "46px",
-              fontWeight: "700",
-              color: "#13203B", // Matching the sample screenshot dark blue tone
-            }}
-          >
-            Where can you start ?
-          </h2>
-
-          <div className="row text-center g-5 px-lg-5">
-            {countries.map((c, i) => (
-              <div key={i} className="col-lg-2 col-md-4 col-12 mx-auto">
-                <h5
-                  style={{
-                    fontFamily: "roboto",
-                    fontWeight: "700",
-                    color: "#13203B",
-                    marginBottom: "15px",
-                  }}
-                >
-                  {c.title}
-                </h5>
-                <p
-                  style={{
-                    fontSize: "17px",
-                    lineHeight: "1.6",
-                    color: "#445065",
-                    fontFamily: "roboto",
-                  }}
-                >
-                  {c.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
+      {/* RECRUITMENT PROCESS SECTION */}
+      {/* RECRUITMENT PROCESS (matches service card background) */}
+<div className="mt-5 pt-5">
+  <h2
+    className="text-center mb-4"
+    style={{ fontFamily: "roboto", fontSize: "40px", fontWeight: "700", color: "#13203B" }}
+  >
+    Recruitment Process
+  </h2>
+
+  <div className="row justify-content-center g-4">
+    <div className="col-lg-10 col-xl-8 d-flex">
+      <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
+        <div className="p-4 flex-grow-1">
+          <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
+            Our streamlined process ensures accuracy and speed:
+          </h5>
+
+          {/* Numbered steps */}
+          <ol style={{ fontSize: "17px", lineHeight: "1.8", color: "#333", paddingLeft: "20px", marginBottom: "16px" }}>
+            <li>Requirement Analysis</li>
+            <li>Candidate Sourcing & Screening</li>
+            <li>Trade Test & Skills Evaluation</li>
+            <li>Employer Interview Coordination</li>
+            <li>Medical & Document Clearance</li>
+            <li>Visa Processing & Compliance</li>
+            <li>Deployment & Travel Management</li>
+            <li>Post-Placement Support</li>
+          </ol>
+
+          {/* What we offer */}
+          <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "10px" }}>
+            What We Offer
+          </h5>
+          <ul style={{ fontSize: "17px", lineHeight: "1.8", color: "#333", paddingLeft: "20px", marginBottom: "0" }}>
+            <li>Verified and competent candidates</li>
+            <li>Industry-specific selection</li>
+            <li>Fast deployment timelines</li>
+            <li>Transparent and compliant operations</li>
+          </ul>
+
+          {/* CTA */}
+          <div className="text-center mt-4">
+            <a
+              href="#contact"
+              className="btn btn-primary rounded-pill px-4 py-2"
+              style={{ fontSize: "18px", fontWeight: "600" }}
+            >
+              Request Manpower →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }

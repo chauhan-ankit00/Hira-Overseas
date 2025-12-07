@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from "../images/logo.png"
 
 export default function NavbarHero() {
   const NAV_OFFSET = 80;
@@ -6,7 +7,7 @@ export default function NavbarHero() {
 
   // ⭐ Typing Animation
   const fullText =
-    "Specialized Nursing Recruitment & Consulting for Modern Healthcare Needs";
+    "Global Talent. Delivered with Precision, simple peace of mind ";
   const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function NavbarHero() {
   // ⭐ Detect active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "service", "contact"];
+      const sections = ["home", "about", "service", "contact", "career", "testinomial", "countries"];
 
       for (let sec of sections) {
         const el = document.getElementById(sec);
@@ -71,14 +72,28 @@ export default function NavbarHero() {
       <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a
           href="#home"
-          className="navbar-brand p-0"
+          className="navbar-brand p-0 d-flex align-items-center"
           onClick={(e) => {
             e.preventDefault();
             document.getElementById("home").scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <h1 className="m-0" style={{ fontFamily: "roboto" }}>Hira Overseas</h1>
+          <img
+            src={logo}
+            alt="Hira Overseas Logo"
+            style={{
+              height: "40px",
+              width: "auto",
+              marginRight: "10px",
+              objectFit: "contain",
+              borderRadius: "5px",
+            }}
+          />
+          <h1 className="m-0" style={{ fontFamily: "roboto", fontSize: "28px", color: "" }}>
+            Hira Overseas
+          </h1>
         </a>
+
 
         <button
           className="navbar-toggler"
@@ -90,7 +105,11 @@ export default function NavbarHero() {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <div className="navbar-nav ms-auto py-0">
+          <div
+            className="navbar-nav ms-auto py-0"
+            style={{ whiteSpace: "nowrap", flexWrap: "nowrap" }}
+          >
+
 
             <a
               href="#home"
@@ -111,7 +130,7 @@ export default function NavbarHero() {
                 document.getElementById("about").scrollIntoView({ behavior: "smooth" });
               }}
             >
-              About
+              About Us
             </a>
 
             <a
@@ -122,8 +141,40 @@ export default function NavbarHero() {
                 document.getElementById("service").scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Service
+              Services
             </a>
+            <a
+              href="#career"
+              className={getLinkClass("career")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("career").scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Career
+            </a>
+
+            <a
+              href="#testinomial"
+              className={getLinkClass("testinomial")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("testinomial").scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Testinomial
+            </a>
+            <a
+              href="#countries"
+              className={getLinkClass("countries")}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("countries").scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Countries
+            </a>
+
 
             <a
               href="#contact"
@@ -138,12 +189,7 @@ export default function NavbarHero() {
 
           </div>
 
-          <a
-            href="#"
-            className="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5"
-          >
-            Admin Login
-          </a>
+
         </div>
       </nav>
 
@@ -167,12 +213,19 @@ export default function NavbarHero() {
                 className="text-white pb-3 animated zoomIn"
                 style={{ fontSize: "20px" }}
               >
-                Hira Overseas provides streamlined nursing recruitment and
-                consulting services to meet the growing demands of hospitals,
-                clinics, and healthcare centers. We ensure that the right
-                professionals are placed in the right roles with confidence.
+                We provide highly qualified Doctors, Engineers, Nurses, Paramedical Staff, and Skilled Tradesmen to leading institutions across the world
               </p>
+              <div className="text-center mt-4">
+                <a
+                  href="#contact"
+                  className="btn btn-dark rounded-pill px-4 py-2"
+                  style={{ fontSize: "18px", fontWeight: "600" }}
+                >
+                  Request Manpower →
+                </a>
+              </div>
             </div>
+
 
             {/* RIGHT SIDE IMAGE */}
             <div
