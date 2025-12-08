@@ -51,12 +51,16 @@ export default function Service() {
       title: "Paramedical & Support Staff",
       desc:
         "We provide trained paramedical and support professionals for essential healthcare services:",
-      items: ["Lab Technicians", "Radiographer", "OT Technicians", "Emergency Medical Staff", "Physiotherapy Assistants"],
+      items: [
+        "Lab Technicians",
+        "Radiographer",
+        "OT Technicians",
+        "Emergency Medical Staff",
+        "Physiotherapy Assistants",
+      ],
       other: "Ensuring dependable assistance and skilled clinical support.",
     },
   ];
-
-
 
   return (
     <div className="container-xxl py-6" id="service">
@@ -124,50 +128,72 @@ export default function Service() {
           ))}
         </div>
 
+        {/* SECTION 2: RECRUITMENT PROCESS + WHAT WE OFFER (two cards side-by-side) */}
+        <div className="mt-5 pt-5">
+          <h2
+            className="text-center mb-4"
+            style={{ fontFamily: "roboto", fontSize: "40px", fontWeight: "700", color: "#13203B" }}
+          >
+            Recruitment Process
+          </h2>
 
-      </div>
-      {/* RECRUITMENT PROCESS SECTION */}
-      {/* RECRUITMENT PROCESS (matches service card background) */}
-<div className="mt-5 pt-5">
-  <h2
-    className="text-center mb-4"
-    style={{ fontFamily: "roboto", fontSize: "40px", fontWeight: "700", color: "#13203B" }}
-  >
-    Recruitment Process
-  </h2>
+          <div className="row justify-content-center g-4">
+            {/* Card 1: Process */}
+            <div className="col-md-6 col-lg-6 d-flex">
+              <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
+                <div className="p-4 flex-grow-1">
+                  <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
+                    Our streamlined process ensures accuracy and speed:
+                  </h5>
+                  <ol
+                    style={{
+                      fontSize: "17px",
+                      lineHeight: "1.8",
+                      color: "#333",
+                      paddingLeft: "20px",
+                      marginBottom: 0,
+                    }}
+                  >
+                    <li>Requirement Analysis</li>
+                    <li>Candidate Sourcing & Screening</li>
+                    <li>Trade Test & Skills Evaluation</li>
+                    <li>Employer Interview Coordination</li>
+                    <li>Medical & Document Clearance</li>
+                    <li>Visa Processing & Compliance</li>
+                    <li>Deployment & Travel Management</li>
+                    <li>Post-Placement Support</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
 
-  <div className="row justify-content-center g-4">
-    <div className="col-lg-10 col-xl-8 d-flex">
-      <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
-        <div className="p-4 flex-grow-1">
-          <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
-            Our streamlined process ensures accuracy and speed:
-          </h5>
+            {/* Card 2: What We Offer */}
+            <div className="col-md-6 col-lg-6 d-flex">
+              <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
+                <div className="p-4 flex-grow-1">
+                  <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
+                    What We Offer
+                  </h5>
+                  <ul
+                    style={{
+                      fontSize: "17px",
+                      lineHeight: "1.8",
+                      color: "#333",
+                      paddingLeft: "20px",
+                      marginBottom: 0,
+                    }}
+                  >
+                    <li>Verified and competent candidates</li>
+                    <li>Industry-specific selection</li>
+                    <li>Fast deployment timelines</li>
+                    <li>Transparent and compliant operations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          {/* Numbered steps */}
-          <ol style={{ fontSize: "17px", lineHeight: "1.8", color: "#333", paddingLeft: "20px", marginBottom: "16px" }}>
-            <li>Requirement Analysis</li>
-            <li>Candidate Sourcing & Screening</li>
-            <li>Trade Test & Skills Evaluation</li>
-            <li>Employer Interview Coordination</li>
-            <li>Medical & Document Clearance</li>
-            <li>Visa Processing & Compliance</li>
-            <li>Deployment & Travel Management</li>
-            <li>Post-Placement Support</li>
-          </ol>
-
-          {/* What we offer */}
-          <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "10px" }}>
-            What We Offer
-          </h5>
-          <ul style={{ fontSize: "17px", lineHeight: "1.8", color: "#333", paddingLeft: "20px", marginBottom: "0" }}>
-            <li>Verified and competent candidates</li>
-            <li>Industry-specific selection</li>
-            <li>Fast deployment timelines</li>
-            <li>Transparent and compliant operations</li>
-          </ul>
-
-          {/* CTA */}
+          {/* Centered CTA below the two cards */}
           <div className="text-center mt-4">
             <a
               href="#contact"
@@ -179,10 +205,6 @@ export default function Service() {
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
     </div>
   );
 }

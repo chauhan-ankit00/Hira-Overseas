@@ -25,10 +25,10 @@ export default function Navbar() {
       setActiveSection("contact");
     }
   }, [location]);
-  
+
   const getLinkClass = (id) =>
     `nav-item nav-link ${activeSection === id ? "fw-bold" : ""}`;
-  
+
   const getLinkColor = (id) => {
     const isActive = activeSection === id;
     return isActive ? "#00B98E" : "#0E2E50"; // Green for active, dark for others
@@ -60,9 +60,9 @@ export default function Navbar() {
       {/* ======================================================== */}
 
       {/* ===== Navbar ===== */}
-      <nav 
+      <nav
         className="navbar navbar-expand-lg px-4 px-lg-5 py-3 py-lg-0 custom-navbar"
-        style={{ 
+        style={{
           backgroundColor: '#FFFFFF',
           background: '#FFFFFF',
           boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
@@ -84,11 +84,11 @@ export default function Navbar() {
               borderRadius: "5px",
             }}
           />
-          <h1 
-            className="m-0" 
-            style={{ 
-              fontFamily: "roboto", 
-              fontSize: "28px", 
+          <h1
+            className="m-0"
+            style={{
+              fontFamily: "roboto",
+              fontSize: "28px",
               color: "#00B98E",
               transition: 'color 0.3s ease'
             }}
@@ -103,14 +103,14 @@ export default function Navbar() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
-          style={{ 
+          style={{
             borderColor: "rgba(0,0,0,0.1)",
             transition: 'border-color 0.3s ease'
           }}
         >
-          <span 
+          <span
             className="fa fa-bars"
-            style={{ 
+            style={{
               color: "#0E2E50",
               transition: 'color 0.3s ease'
             }}
@@ -154,6 +154,13 @@ export default function Navbar() {
             >
               Career
             </Link>
+            <Link
+              to="/countries"
+              className={getLinkClass("countries")}
+              style={{ color: getLinkColor("countries") }}
+            >
+              Countries
+            </Link>
 
             <Link
               to="/testimonial"
@@ -162,13 +169,7 @@ export default function Navbar() {
             >
               Testinomial
             </Link>
-            <Link
-              to="/countries"
-              className={getLinkClass("countries")}
-              style={{ color: getLinkColor("countries") }}
-            >
-              Countries
-            </Link>
+
 
 
             <Link
