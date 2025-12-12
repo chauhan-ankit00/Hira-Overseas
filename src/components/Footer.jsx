@@ -19,19 +19,19 @@ export default function Footer() {
             <p><i className="fa fa-envelope me-3"></i>hiraenterprisesdel@gmail.com</p>
 
             <div className="d-flex pt-2">
-              <a className="btn btn-outline-light btn-social" href="#">
+              <a className="btn btn-outline-light btn-social" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="#">
+              <a className="btn btn-outline-light btn-social" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="#">
+              <a className="btn btn-outline-light btn-social" href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <i className="fab fa-youtube"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="#">
+              <a className="btn btn-outline-light btn-social" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="#">
+              <a className="btn btn-outline-light btn-social" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
