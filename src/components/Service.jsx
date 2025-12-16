@@ -63,7 +63,7 @@ export default function Service() {
   ];
 
   return (
-    <div className="container-xxl py-6" id="service">
+    <div className="container-xxl py-6" id="service" >
       <div className="container">
         {/* SECTION 1: SERVICES */}
         <div
@@ -75,7 +75,7 @@ export default function Service() {
             Our Services
           </div>
           <h2 className="mb-5" style={{ fontFamily: "roboto" }}>
-            Providing Reliable Manpower for Every Sector
+            Providing Reliable Manpower for Mentioned below Sector
           </h2>
         </div>
 

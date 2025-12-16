@@ -5,3 +5,112 @@
     font-family: 'Roboto';
     
 }
+
+:root {
+    /* --bs-primary: #90D5FF; */
+    --bs-primary: #3c51ef;
+    --bs-primary-rgb: 144, 213, 255;
+  
+    /* ADD THESE */
+    --bs-success: #3c51ef;
+    --bs-success-rgb: 144, 213, 255;
+  }
+  .text-primary,
+  .text-success {
+    color: #3c51ef !important;
+  }
+  
+  .bg-primary,
+  .bg-success {
+    background-color:#3c51ef !important;
+  }
+  
+  .border-primary,
+  .border-success {
+    border-color: #3c51ef !important;
+  }
+    
+  /* ===============================
+   FORCE BTN PRIMARY TO LIGHT BLUE
+   =============================== */
+.btn-primary {
+    background-color: #3c51ef !important;
+    border-color: #3c51ef !important;
+    color: #ffffff !important;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus {
+    /* background-color: #7fcaf5 !important;
+    border-color: #7fcaf5 !important; */
+    background-color: #3c51ef !important;
+    border-color: #3c51ef !important;
+    color: #ffffff !important;
+  }
+  
+  /* =====================================
+   FORCE OUTLINE PRIMARY TO LIGHT BLUE
+   ===================================== */
+.btn-outline-primary {
+    color: #3c51ef !important;
+    border-color: #3c51ef !important;
+    background-color: transparent !important;
+  }
+  
+  .btn-outline-primary:hover,
+  .btn-outline-primary:focus {
+    color: #ffffff !important;
+    background-color: #3c51ef !important;
+    border-color: #3c51ef !important;
+  }
+  /* ===============================
+   PREVENT NAVBAR SHRINK ON SCROLL
+   =============================== */
+.navbar,
+.navbar.scrolled,
+.navbar-sticky,
+.navbar-shrink {
+  height: 72px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.navbar-brand img {
+  height: 68px !important;
+}
+/* =========================================
+   LOCK BRAND SIZE (LOGO + TEXT) ON SCROLL
+   ========================================= */
+
+/* Prevent any scale/transform on brand */
+.navbar-brand,
+.navbar-brand * {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Lock logo size */
+.navbar-brand img {
+  height: 68px !important;
+  max-height: 68px !important;
+  width: auto !important;
+}
+
+/* Lock brand text size */
+.navbar-brand h1 {
+  font-size: 26px !important;
+  line-height: 1 !important;
+}
+
+/* Handle common scroll classes used by templates */
+.navbar.scrolled .navbar-brand img,
+.navbar-sticky .navbar-brand img,
+.navbar-shrink .navbar-brand img {
+  height: 68px !important;
+}
+
+.navbar.scrolled .navbar-brand h1,
+.navbar-sticky .navbar-brand h1,
+.navbar-shrink .navbar-brand h1 {
+  font-size: 26px !important;
+}

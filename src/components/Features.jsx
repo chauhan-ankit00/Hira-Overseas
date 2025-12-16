@@ -95,7 +95,7 @@ export default function Features() {
               </div>
 
               {/* Feature Item 5 */}
-              <div className="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+              {/* <div className="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
                 <div className="d-flex align-items-center mb-3">
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-user-tie text-white"></i>
@@ -107,7 +107,7 @@ export default function Features() {
                 <span style={{ fontSize: "18px" }}>
                   From application and interviews to documentation, travel assistance, and post-placement support—we guide candidates through every step of their overseas journey.
                 </span>
-              </div>
+              </div> */}
 
             </div>
           </div>
