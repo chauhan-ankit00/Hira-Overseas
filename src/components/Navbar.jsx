@@ -63,6 +63,14 @@ export default function Navbar() {
         .navbar-nav .nav-link:hover {
           color: #3c51ef !important;
         }
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+}
 
         @media (max-width: 768px) {
           .navbar-brand img {
@@ -71,12 +79,7 @@ export default function Navbar() {
           .navbar-brand h1 {
             font-size: 22px !important;
           }
-            .navbar-collapse {
-    background: #ffffff;
-    padding: 12px 16px;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
+            
         }
       `}</style>
       {/* ============================================= */}
