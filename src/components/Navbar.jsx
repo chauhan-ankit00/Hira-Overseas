@@ -15,6 +15,12 @@ export default function Navbar() {
     else if (path === "/testimonial") setActiveSection("testinomial");
     else if (path === "/countries") setActiveSection("countries");
     else if (path === "/contact") setActiveSection("contact");
+
+    // 🔹 Close mobile menu on route change
+    const collapseEl = document.getElementById("navbarCollapse");
+    if (collapseEl && collapseEl.classList.contains("show")) {
+      collapseEl.classList.remove("show");
+    }
   }, [location]);
 
   const getLinkClass = (id) =>
@@ -23,9 +29,17 @@ export default function Navbar() {
   const getLinkColor = (id) =>
     activeSection === id ? "#3c51ef" : "#0E2E50";
 
+  // 🔹 Close menu on link click (mobile)
+  const closeMenu = () => {
+    const collapseEl = document.getElementById("navbarCollapse");
+    if (collapseEl && collapseEl.classList.contains("show")) {
+      collapseEl.classList.remove("show");
+    }
+  };
+
   return (
     <>
-      {/* ============== CSS ============== */}
+      {/* ============== CSS (UNCHANGED) ============== */}
       <style>{`
         .custom-navbar {
           position: fixed;
@@ -57,34 +71,40 @@ export default function Navbar() {
           .navbar-brand h1 {
             font-size: 22px !important;
           }
+            .navbar-collapse {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
         }
       `}</style>
-      {/* ================================= */}
+      {/* ============================================= */}
 
       <nav
         className="navbar navbar-expand-lg px-4 px-lg-5 custom-navbar"
         style={{ height: "72px" }}
       >
-        {/* Brand */}
+        {/* ===== BRAND (UNCHANGED) ===== */}
         <Link to="/" className="navbar-brand p-0">
           <img
             src={logo}
             alt="Hira Overseas Logo"
             style={{
-              height: "68px",        // 🔥 KEY FIX
+              height: "68px",
               width: "auto",
               objectFit: "contain",
-              marginRight: "12px"
+              marginRight: "12px",
             }}
           />
           <h1
             className="m-0"
             style={{
               fontFamily: "roboto",
-              fontSize: "26px",      // slightly reduced
+              fontSize: "26px",
               fontWeight: "600",
               color: "black",
-              lineHeight: "1"
+              lineHeight: "1",
             }}
           >
             Hira Overseas
@@ -101,16 +121,16 @@ export default function Navbar() {
           <span className="fa fa-bars" />
         </button>
 
-        {/* Menu */}
+        {/* ===== MENU ===== */}
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto py-0">
-            <Link to="/" className={getLinkClass("home")} style={{ color: getLinkColor("home") }}>Home</Link>
-            <Link to="/about" className={getLinkClass("about")} style={{ color: getLinkColor("about") }}>About Us</Link>
-            <Link to="/services" className={getLinkClass("service")} style={{ color: getLinkColor("service") }}>Services</Link>
-            <Link to="/career" className={getLinkClass("career")} style={{ color: getLinkColor("career") }}>Career</Link>
-            <Link to="/countries" className={getLinkClass("countries")} style={{ color: getLinkColor("countries") }}>Countries</Link>
-            <Link to="/testimonial" className={getLinkClass("testinomial")} style={{ color: getLinkColor("testinomial") }}>Testinomial</Link>
-            <Link to="/contact" className={getLinkClass("contact")} style={{ color: getLinkColor("contact") }}>Contact</Link>
+            <Link to="/" onClick={closeMenu} className={getLinkClass("home")} style={{ color: getLinkColor("home") }}>Home</Link>
+            <Link to="/about" onClick={closeMenu} className={getLinkClass("about")} style={{ color: getLinkColor("about") }}>About Us</Link>
+            <Link to="/services" onClick={closeMenu} className={getLinkClass("service")} style={{ color: getLinkColor("service") }}>Services</Link>
+            <Link to="/career" onClick={closeMenu} className={getLinkClass("career")} style={{ color: getLinkColor("career") }}>Career</Link>
+            <Link to="/countries" onClick={closeMenu} className={getLinkClass("countries")} style={{ color: getLinkColor("countries") }}>Countries</Link>
+            <Link to="/testimonial" onClick={closeMenu} className={getLinkClass("testinomial")} style={{ color: getLinkColor("testinomial") }}>Testinomial</Link>
+            <Link to="/contact" onClick={closeMenu} className={getLinkClass("contact")} style={{ color: getLinkColor("contact") }}>Contact</Link>
           </div>
         </div>
       </nav>

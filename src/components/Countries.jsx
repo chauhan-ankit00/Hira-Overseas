@@ -46,6 +46,7 @@
 //   );
 // }
 
+
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -78,15 +79,17 @@ export default function CountriesSection() {
 
     responsive: [
       {
-        breakpoint: 992, // tablet
+        breakpoint: 992, // tablets
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 576, // mobile
+        breakpoint: 600, // ✅ mobile (below 600px)
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -97,7 +100,12 @@ export default function CountriesSection() {
       <div className="container">
         <h2
           className="text-center mb-5"
-          style={{ fontFamily: "roboto", fontSize: "46px", fontWeight: "700", color: "#13203B" }}
+          style={{
+            fontFamily: "roboto",
+            fontSize: "46px",
+            fontWeight: "700",
+            color: "#13203B",
+          }}
         >
           Where Can You Start?
         </h2>
