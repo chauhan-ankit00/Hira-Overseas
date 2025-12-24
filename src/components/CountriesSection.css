@@ -1,23 +1,29 @@
-/* ---------- Slider Equal Height Fix ---------- */
-.slick-track {
+/* ================= GLOBAL FONT ================= */
+.countries-wrapper,
+.countries-wrapper * {
+  font-family: "Roboto", sans-serif;
+}
+
+/* ================= EQUAL HEIGHT FIX ================= */
+.countries-wrapper .slick-track {
   display: flex !important;
 }
 
-.slick-slide {
+.countries-wrapper .slick-slide {
   height: auto !important;
 }
 
-.slick-slide > div {
+.countries-wrapper .slick-slide > div {
   height: 100%;
 }
 
-/* ---------- Slide Padding ---------- */
+/* ================= SLIDE ================= */
 .country-slide {
   padding: 0 6px;
   height: 100%;
 }
 
-/* ---------- Card ---------- */
+/* ================= CARD ================= */
 .country-card {
   height: 100%;
   background: #ffffff;
@@ -28,9 +34,8 @@
   flex-direction: column;
 }
 
-/* ---------- Text ---------- */
+/* ================= TEXT ================= */
 .country-title {
-  font-family: Roboto, sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #13203b;
@@ -38,25 +43,31 @@
 }
 
 .country-text {
-  font-family: Roboto, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: #445065;
   margin: 0;
 }
 
-/* ---------- Section Title ---------- */
+/* ================= SECTION TITLE ================= */
 .countries-title {
   text-align: center;
-  font-family: Roboto, sans-serif;
   font-size: 42px;
   font-weight: 700;
   color: #13203b;
   margin-bottom: 48px;
 }
 
-/* ---------- Mobile Tweaks ---------- */
+/* ================= MOBILE ONLY FIX ================= */
 @media (max-width: 600px) {
+  .countries-wrapper .slick-slide {
+    width: 100% !important; /* ✅ ONLY MOBILE */
+  }
+
+  .countries-wrapper .slick-list {
+    padding: 0 !important;
+  }
+
   .countries-title {
     font-size: 30px;
   }
