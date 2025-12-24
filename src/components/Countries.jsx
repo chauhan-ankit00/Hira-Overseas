@@ -149,23 +149,175 @@
 // }
 
 
+// import React from "react";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
+// export default function CountriesSection() {
+//   const countries = [
+//     { title: "United Arab Emirates", text: "Explore world-class healthcare and technical career opportunities in the UAE." },
+//     { title: "Saudi Arabia", text: "Saudi Arabia offers high-growth healthcare and engineering roles with tax-free benefits." },
+//     { title: "Qatar", text: "Qatar provides excellent opportunities in healthcare, engineering, and infrastructure sectors." },
+//     { title: "Oman", text: "Build a rewarding career in Oman with a supportive work environment and stable growth." },
+//     { title: "Kuwait", text: "Kuwait presents strong demand for skilled professionals in healthcare and engineering." },
+//     { title: "Bahrain", text: "Join Bahrain’s dynamic workforce with opportunities for nurses, engineers, and technicians." },
+//     { title: "United Kingdom", text: "UK offers globally recognized pathways for medical and skilled professionals." },
+//     { title: "Germany", text: "Germany provides structured career growth with high standards in healthcare and engineering." },
+//     { title: "Poland", text: "Poland offers stable opportunities for skilled and semi-skilled professionals across industries." },
+//     { title: "Romania", text: "Romania provides diverse openings in healthcare, manufacturing, and technical fields." },
+//   ];
+
+//   const settings = {
+//     dots: true,
+//     infinite: true,
+//     autoplay: true,
+//     speed: 800,
+//     autoplaySpeed: 3000,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     arrows: false,
+//     pauseOnHover: false,
+
+//     responsive: [
+//       {
+//         breakpoint: 992, // tablet
+//         settings: {
+//           slidesToShow: 2,
+//         },
+//       },
+//       {
+//         breakpoint: 600, // mobile
+//         settings: {
+//           slidesToShow: 1,
+//           centerMode: true,          // 🔥 KEY FIX
+//           centerPadding: "16px",     // 🔥 KEY FIX
+//         },
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div className="container-xxl py-6" id="countries">
+//       <div className="container">
+//         <h2
+//           className="text-center mb-5"
+//           style={{
+//             fontFamily: "roboto",
+//             fontSize: "42px",
+//             fontWeight: "700",
+//             color: "#13203B",
+//           }}
+//         >
+//           Where Can You Start?
+//         </h2>
+
+//         <Slider {...settings}>
+//           {countries.map((c, i) => (
+//             <div key={i} style={{ padding: "0 6px" }}>
+//               <div
+//                 className="service-item rounded d-flex flex-column"
+//                 style={{
+//                   padding: "16px",
+//                   background: "#ffffff",
+//                   boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+//                   minHeight: "240px",
+//                 }}
+//               >
+//                 <div className="flex-grow-1">
+//                   <h5
+//                     style={{
+//                       fontFamily: "roboto",
+//                       fontWeight: "700",
+//                       color: "#13203B",
+//                       marginBottom: "8px",
+//                       fontSize: "20px",
+//                     }}
+//                   >
+//                     {c.title}
+//                   </h5>
+
+//                   <p
+//                     style={{
+//                       fontSize: "15px",
+//                       lineHeight: "1.6",
+//                       color: "#445065",
+//                       fontFamily: "roboto",
+//                       marginBottom: 0,
+//                     }}
+//                   >
+//                     {c.text}
+//                   </p>
+//                 </div>
+//               </div>
+//             </div>
+//           ))}
+//         </Slider>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./CountriesSection.css";
 
 export default function CountriesSection() {
   const countries = [
-    { title: "United Arab Emirates", text: "Explore world-class healthcare and technical career opportunities in the UAE." },
-    { title: "Saudi Arabia", text: "Saudi Arabia offers high-growth healthcare and engineering roles with tax-free benefits." },
-    { title: "Qatar", text: "Qatar provides excellent opportunities in healthcare, engineering, and infrastructure sectors." },
-    { title: "Oman", text: "Build a rewarding career in Oman with a supportive work environment and stable growth." },
-    { title: "Kuwait", text: "Kuwait presents strong demand for skilled professionals in healthcare and engineering." },
-    { title: "Bahrain", text: "Join Bahrain’s dynamic workforce with opportunities for nurses, engineers, and technicians." },
-    { title: "United Kingdom", text: "UK offers globally recognized pathways for medical and skilled professionals." },
-    { title: "Germany", text: "Germany provides structured career growth with high standards in healthcare and engineering." },
-    { title: "Poland", text: "Poland offers stable opportunities for skilled and semi-skilled professionals across industries." },
-    { title: "Romania", text: "Romania provides diverse openings in healthcare, manufacturing, and technical fields." },
+    {
+      title: "United Arab Emirates",
+      text:
+        "Explore world-class healthcare and technical career opportunities in the UAE.",
+    },
+    {
+      title: "Saudi Arabia",
+      text:
+        "Saudi Arabia offers high-growth healthcare and engineering roles with tax-free benefits.",
+    },
+    {
+      title: "Qatar",
+      text:
+        "Qatar provides excellent opportunities in healthcare, engineering, and infrastructure sectors.",
+    },
+    {
+      title: "Oman",
+      text:
+        "Build a rewarding career in Oman with a supportive work environment and stable growth.",
+    },
+    {
+      title: "Kuwait",
+      text:
+        "Kuwait presents strong demand for skilled professionals in healthcare and engineering.",
+    },
+    {
+      title: "Bahrain",
+      text:
+        "Join Bahrain’s dynamic workforce with opportunities for nurses, engineers, and technicians.",
+    },
+    {
+      title: "United Kingdom",
+      text:
+        "UK offers globally recognized pathways for medical and skilled professionals.",
+    },
+    {
+      title: "Germany",
+      text:
+        "Germany provides structured career growth with high standards in healthcare and engineering.",
+    },
+    {
+      title: "Poland",
+      text:
+        "Poland offers stable opportunities for skilled and semi-skilled professionals across industries.",
+    },
+    {
+      title: "Romania",
+      text:
+        "Romania provides diverse openings in healthcare, manufacturing, and technical fields.",
+    },
   ];
 
   const settings = {
@@ -181,17 +333,17 @@ export default function CountriesSection() {
 
     responsive: [
       {
-        breakpoint: 992, // tablet
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 600, // mobile
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          centerMode: true,          // 🔥 KEY FIX
-          centerPadding: "16px",     // 🔥 KEY FIX
+          centerMode: true,
+          centerPadding: "16px",
         },
       },
     ],
@@ -200,55 +352,16 @@ export default function CountriesSection() {
   return (
     <div className="container-xxl py-6" id="countries">
       <div className="container">
-        <h2
-          className="text-center mb-5"
-          style={{
-            fontFamily: "roboto",
-            fontSize: "42px",
-            fontWeight: "700",
-            color: "#13203B",
-          }}
-        >
+        <h2 className="countries-title">
           Where Can You Start?
         </h2>
 
         <Slider {...settings}>
           {countries.map((c, i) => (
-            <div key={i} style={{ padding: "0 6px" }}>
-              <div
-                className="service-item rounded d-flex flex-column"
-                style={{
-                  padding: "16px",
-                  background: "#ffffff",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
-                  minHeight: "240px",
-                }}
-              >
-                <div className="flex-grow-1">
-                  <h5
-                    style={{
-                      fontFamily: "roboto",
-                      fontWeight: "700",
-                      color: "#13203B",
-                      marginBottom: "8px",
-                      fontSize: "20px",
-                    }}
-                  >
-                    {c.title}
-                  </h5>
-
-                  <p
-                    style={{
-                      fontSize: "15px",
-                      lineHeight: "1.6",
-                      color: "#445065",
-                      fontFamily: "roboto",
-                      marginBottom: 0,
-                    }}
-                  >
-                    {c.text}
-                  </p>
-                </div>
+            <div key={i} className="country-slide">
+              <div className="country-card">
+                <h5 className="country-title">{c.title}</h5>
+                <p className="country-text">{c.text}</p>
               </div>
             </div>
           ))}

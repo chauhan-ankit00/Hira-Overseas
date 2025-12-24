@@ -1,0 +1,63 @@
+/* ---------- Slider Equal Height Fix ---------- */
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+/* ---------- Slide Padding ---------- */
+.country-slide {
+  padding: 0 6px;
+  height: 100%;
+}
+
+/* ---------- Card ---------- */
+.country-card {
+  height: 100%;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Text ---------- */
+.country-title {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #13203b;
+  margin-bottom: 8px;
+}
+
+.country-text {
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #445065;
+  margin: 0;
+}
+
+/* ---------- Section Title ---------- */
+.countries-title {
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #13203b;
+  margin-bottom: 48px;
+}
+
+/* ---------- Mobile Tweaks ---------- */
+@media (max-width: 600px) {
+  .countries-title {
+    font-size: 30px;
+  }
+}
