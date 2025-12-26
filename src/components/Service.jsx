@@ -197,7 +197,7 @@ export default function Service() {
           <div className="text-center mt-4">
             <a
               href="#contact"
-              className="btn btn-primary rounded-pill px-4 py-2"
+              className="btn btn-outline-primary rounded-pill px-4 py-2"
               style={{ fontSize: "18px", fontWeight: "600" }}
             >
               Request Manpower →

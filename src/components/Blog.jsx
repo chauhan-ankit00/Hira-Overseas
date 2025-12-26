@@ -23,7 +23,7 @@ export default function Blog() {
 
         // Map DB rows → UI format
         const mapped = data.map((v) => ({
-          type:"video",
+          type: "video",
           title: v.title,
           src: v.url,
           type: "video",
@@ -83,13 +83,21 @@ export default function Blog() {
         ) : (
           <>
             {/* Desktop / Tablet */}
-            <div className="row g-4 d-none d-md-flex">
+            <div className="row g-4 d-none d-md-flex justify-content-center">
               {videos.map((item, i) => (
-                <div className="col-lg-4 col-md-6" key={i}>
+                <div
+                  key={i}
+                  className={
+                    videos.length === 1
+                      ? "col-lg-6 col-md-8"   // 👈 CENTERED & WIDER
+                      : "col-lg-4 col-md-6"
+                  }
+                >
                   <VideoCard item={item} onOpen={() => setActive(i)} />
                 </div>
               ))}
             </div>
+
 
             {/* Mobile Carousel */}
             <div className="d-block d-md-none">
@@ -112,9 +120,9 @@ export default function Blog() {
             onClick={closeModal}
           >
             <div
-  className="modal-dialog modal-dialog-centered modal-xl blog-video-modal"
-  onClick={(e) => e.stopPropagation()}
->
+              className="modal-dialog modal-dialog-centered modal-xl blog-video-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="modal-content border-0">
                 <div className="modal-header">
                   <h5 className="modal-title">
@@ -167,7 +175,7 @@ function VideoCard({ item, onOpen }) {
 
       <div className="card-footer bg-white border-0">
         <button
-          className="btn btn-primary w-100 rounded-pill"
+          className="btn btn-outline-primary w-100 rounded-pill"
           onClick={onOpen}
         >
           Watch

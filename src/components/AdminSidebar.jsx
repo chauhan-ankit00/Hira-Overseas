@@ -7,6 +7,8 @@ const AdminSidebar = ({ setActiveTab, activeTab }) => {
     { id: "uploadJob", name: "Upload Job" },
     { id: "viewApplications", name: "View Applications" },
     { id: "uploadVideo", name: "Upload Video" },
+    { id: "uploadedVideoDisplay", name: "Uploaded video" },
+    { id: "postedJobDisplay", name: "Posted Job" },
   ];
 
   const navigate = useNavigate();

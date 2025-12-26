@@ -71,59 +71,59 @@ export default function CareerPage() {
     }
   };
 
- const submitForm = async (e) => {
-  e.preventDefault();
+  const submitForm = async (e) => {
+    e.preventDefault();
 
-  try {
-    if (!form.resume) {
-      alert("Please upload resume");
-      return;
+    try {
+      if (!form.resume) {
+        alert("Please upload resume");
+        return;
+      }
+
+      /* ================= UPLOAD RESUME ================= */
+      const fileExt = form.resume.name.split(".").pop();
+      const fileName = `${Date.now()}-${Math.random()}.${fileExt}`;
+      const filePath = `applications/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("resumes")
+        .upload(filePath, form.resume);
+
+      if (uploadError) throw uploadError;
+
+      /* ================= GET FILE URL ================= */
+      const { data: urlData } = supabase.storage
+        .from("resumes")
+        .getPublicUrl(filePath);
+
+      const resumeUrl = urlData.publicUrl;
+
+      /* ================= SAVE APPLICATION ================= */
+      const { error: insertError } = await supabase
+        .from("applications")
+        .insert([
+          {
+            name: form.name,
+            email: form.email,
+            role: form.role || selectedRole,
+            experience_years: Number(form.experienceYears),
+            education: form.education,
+            age: Number(form.age),
+            languages: form.languages,
+            message: form.message,
+            resume_url: resumeUrl,
+          },
+        ]);
+
+      if (insertError) throw insertError;
+
+      alert("Your CV has been submitted successfully!");
+      closeModal();
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Something went wrong. Please try again.");
     }
-
-    /* ================= UPLOAD RESUME ================= */
-    const fileExt = form.resume.name.split(".").pop();
-    const fileName = `${Date.now()}-${Math.random()}.${fileExt}`;
-    const filePath = `applications/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from("resumes")
-      .upload(filePath, form.resume);
-
-    if (uploadError) throw uploadError;
-
-    /* ================= GET FILE URL ================= */
-    const { data: urlData } = supabase.storage
-      .from("resumes")
-      .getPublicUrl(filePath);
-
-    const resumeUrl = urlData.publicUrl;
-
-    /* ================= SAVE APPLICATION ================= */
-    const { error: insertError } = await supabase
-      .from("applications")
-      .insert([
-        {
-          name: form.name,
-          email: form.email,
-          role: form.role || selectedRole,
-          experience_years: Number(form.experienceYears),
-          education: form.education,
-          age: Number(form.age),
-          languages: form.languages,
-          message: form.message,
-          resume_url: resumeUrl,
-        },
-      ]);
-
-    if (insertError) throw insertError;
-
-    alert("Your CV has been submitted successfully!");
-    closeModal();
-  } catch (err) {
-    console.error("Submission error:", err);
-    alert("Something went wrong. Please try again.");
-  }
-};
+  };
 
 
   return (
@@ -156,9 +156,20 @@ export default function CareerPage() {
         )}
 
         {/* ===== JOB CARDS ===== */}
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div
+          className={`row g-4 ${jobs.length <=2 ? "justify-content-center" : ""
+            }`}
+        >
+
           {jobs.map((job) => (
-            <div key={job.id} className="col d-flex">
+            <div
+              key={job.id}
+              className={`d-flex ${jobs.length === 1
+                  ? "col-lg-6 col-md-8 col-12"
+                  : "col-lg-4 col-md-6 col-12"
+                }`}
+            >
+
               <div className="service-item rounded h-100 w-100 p-4 d-flex flex-column">
                 <div className="flex-grow-1">
                   <h5 className="fw-bold text-dark">{job.title}</h5>
@@ -194,7 +205,7 @@ export default function CareerPage() {
         {/* ===== BOTTOM CTA ===== */}
         <div className="text-center mt-5">
           <button
-            className="btn btn-primary rounded-pill px-4 py-2"
+            className="btn btn-outline-primary rounded-pill px-4 py-2"
             onClick={() => openModal("")}
           >
             Submit CV →

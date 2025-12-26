@@ -3,6 +3,8 @@ import AdminSidebar from "../components/AdminSidebar";
 import JobUploadForm from "../components/JobUploadForm";
 import ApplicationsDisplay from "../components/ApplicationsDisplay";
 import VideoUpload from "../components/VideoUpload";
+import UploadedVideoDisplay from "../components/UploadedVideoDisplay";
+import PostedJobDisplay from "../components/PostedJobDisplay";
 import "../components/Admin.css";
 
 const AdminPage = () => {
@@ -16,6 +18,10 @@ const AdminPage = () => {
         return <ApplicationsDisplay />;
       case "uploadVideo":
         return <VideoUpload />;
+      case "uploadedVideoDisplay":
+        return <UploadedVideoDisplay />;
+      case "postedJobDisplay":
+        return <PostedJobDisplay />;
       default:
         return <JobUploadForm />;
     }

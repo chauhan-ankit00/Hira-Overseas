@@ -113,7 +113,7 @@ export default function VideoUpload() {
           onChange={(e) => setVideoFile(e.target.files[0])}
         />
 
-        <button className="btn btn-primary" disabled={uploading}>
+        <button className="btn btn-outline-primary" disabled={uploading}>
           {uploading ? "Uploading..." : "Upload Video"}
         </button>
       </form>

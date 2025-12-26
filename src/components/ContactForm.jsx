@@ -69,7 +69,7 @@ export default function ContactForm() {
 
                   {/* Submit Button */}
                   <div className="col-12">
-                    <button className="btn btn-primary w-100 py-3" type="submit">
+                    <button className="btn btn-outline-primary w-100 py-3" type="submit">
                       Send Message
                     </button>
                   </div>
