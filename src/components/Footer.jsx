@@ -47,15 +47,7 @@ export default function Footer() {
             <Link className="btn btn-link" to="/career">Career</Link>
           </div>
 
-          {/* Popular Links */}
-          <div className="col-md-6 col-lg-3">
-            <h5 className="text-white mb-4">Popular Link</h5>
-            <Link className="btn btn-link" to="/about">About Us</Link>
-            <Link className="btn btn-link" to="/contact">Contact Us</Link>
-            <a className="btn btn-link" href="#">Privacy Policy</a>
-            <a className="btn btn-link" href="#">Terms & Condition</a>
-            <Link className="btn btn-link" to="/career">Career</Link>
-          </div>
+          
 
           {/* Newsletter */}
           <div className="col-md-6 col-lg-3">
