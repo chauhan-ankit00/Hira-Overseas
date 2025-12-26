@@ -5,6 +5,7 @@ import logo from "../images/logo.png";
 export default function Navbar() {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState("home");
+  
 
   useEffect(() => {
     const path = location.pathname;
@@ -134,6 +135,7 @@ export default function Navbar() {
             <Link to="/countries" onClick={closeMenu} className={getLinkClass("countries")} style={{ color: getLinkColor("countries") }}>Countries</Link>
             <Link to="/testimonial" onClick={closeMenu} className={getLinkClass("testinomial")} style={{ color: getLinkColor("testinomial") }}>Testinomial</Link>
             <Link to="/contact" onClick={closeMenu} className={getLinkClass("contact")} style={{ color: getLinkColor("contact") }}>Contact</Link>
+            <Link to="/admin" className={getLinkClass("admin")}>Admin Panel</Link>
           </div>
         </div>
       </nav>
