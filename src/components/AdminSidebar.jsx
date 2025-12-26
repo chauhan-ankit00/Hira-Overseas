@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const AdminSidebar = ({ setActiveTab, activeTab }) => {
   const tabs = [
-    { id: "uploadJob", name: "Upload Job" },
-    { id: "viewApplications", name: "View Applications" },
+    { id: "uploadJob", name: "Post Job" },
     { id: "uploadVideo", name: "Upload Video" },
-    { id: "uploadedVideoDisplay", name: "Uploaded video" },
-    { id: "postedJobDisplay", name: "Posted Job" },
+     { id: "viewApplications", name: "View Applications" },
+    { id: "uploadedVideoDisplay", name: "View Uploaded video" },
+    { id: "postedJobDisplay", name: "View Posted Job" },
   ];
 
   const navigate = useNavigate();
