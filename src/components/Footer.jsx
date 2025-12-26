@@ -9,58 +9,100 @@ export default function Footer() {
       style={{ marginTop: "6rem" }}
     >
       <div className="container py-5">
-        <div className="row g-5">
+        <div className="row g-5 justify-content-between">
 
-          {/* Get in Touch */}
-          <div className="col-md-6 col-lg-3">
+          {/* Get In Touch */}
+          <div className="col-md-6 col-lg-4">
             <h5 className="text-white mb-4">Get In Touch</h5>
-            <p><i className="fa fa-map-marker-alt me-3"></i>Sarai Jullena, New Delhi, India</p>
-            <p><i className="fa fa-phone-alt me-3"></i>+91 9582414590</p>
-            <p><i className="fa fa-envelope me-3"></i>hiraenterprisesdel@gmail.com</p>
+            <p>
+              <i className="fa fa-map-marker-alt me-3"></i>
+              Sarai Jullena, New Delhi, India
+            </p>
+            <p>
+              <i className="fa fa-phone-alt me-3"></i>
+              +91 9582414590
+            </p>
+            <p>
+              <i className="fa fa-envelope me-3"></i>
+              hiraenterprisesdel@gmail.com
+            </p>
 
             <div className="d-flex pt-2">
-              <a className="btn btn-outline-light btn-social" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a
+                className="btn btn-outline-light btn-social me-2"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-twitter"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a
+                className="btn btn-outline-light btn-social me-2"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <a
+                className="btn btn-outline-light btn-social me-2"
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-youtube"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a
+                className="btn btn-outline-light btn-social me-2"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-instagram"></i>
               </a>
-              <a className="btn btn-outline-light btn-social" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a
+                className="btn btn-outline-light btn-social"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="col-md-6 col-lg-3">
-            <h5 className="text-white mb-4">Quick Link</h5>
-            <Link className="btn btn-link" to="/about">About Us</Link>
-            <Link className="btn btn-link" to="/contact">Contact Us</Link>
-            <Link className="btn btn-link" to="/services">Services</Link>
-            <a className="btn btn-link" href="#">Terms & Condition</a>
-            <Link className="btn btn-link" to="/career">Career</Link>
+          <div className="col-md-6 col-lg-4">
+            <h5 className="text-white mb-4">Quick Links</h5>
+            <Link className="btn btn-link" to="/about">
+              About Us
+            </Link>
+            <Link className="btn btn-link" to="/contact">
+              Contact Us
+            </Link>
+            <Link className="btn btn-link" to="/services">
+              Services
+            </Link>
+            <a className="btn btn-link" href="#">
+              Terms & Conditions
+            </a>
+            <Link className="btn btn-link" to="/career">
+              Career
+            </Link>
           </div>
 
-          
-
           {/* Newsletter */}
-          <div className="col-md-6 col-lg-3">
+          <div className="col-md-6 col-lg-4">
             <h5 className="text-white mb-4">Newsletter</h5>
             <p>
-              Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-              Curabitur facilisis ornare velit non vulpu
+              Subscribe to receive updates, job alerts, and overseas
+              opportunities directly in your inbox.
             </p>
 
             <div className="position-relative w-100 mt-3">
               <input
                 className="form-control border-0 rounded-pill w-100 ps-4 pe-5"
-                type="text"
+                type="email"
                 placeholder="Your Email"
                 style={{ height: "48px" }}
               />
@@ -76,34 +118,32 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Copyright */}
       <div className="container">
         <div className="copyright">
           <div className="row">
-
-            {/* Left Copyright */}
             <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
               &copy;{" "}
               <a className="border-bottom" href="#">
                 HiraOverseas.com
               </a>
-              , All Right Reserved.
-
+              , All Rights Reserved.
               <br />
               Designed By{" "}
-              <a className="border-bottom" href="https://htmlcodex.com">
+              <a
+                className="border-bottom"
+                href="https://ankitchauhan.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ankit Chauhan
               </a>
             </div>
 
-            {/* Right Footer Menu */}
-            <div className="col-md-6 text-center text-md-end">
-              
-            </div>
-
+            <div className="col-md-6 text-center text-md-end"></div>
           </div>
         </div>
       </div>
-
     </div>
   );
 }
