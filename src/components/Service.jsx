@@ -9,9 +9,9 @@ export default function Service() {
       desc: "We supply qualified and licensed professionals:",
       items: [
         "Doctors & Specialists",
-        "Registered Nurses",
-        "Paramedical & Clinical Support Staff",
-        "Laboratory, Radiology, and Pharmacy Professionals",
+        "Registered & Specialist Nurses",
+        "Clinical Technologists & Allied Health Professionals",
+       
       ],
       other:
         "Our medical sourcing ensures clinical competence, global compliance, and employer-focused matching.",
@@ -31,7 +31,7 @@ export default function Service() {
     {
       icon: "fa fa-hard-hat fa-2x",
       delay: "0.1s",
-      title: "Skilled Blue-Collar Workforce",
+      title: "Skilled and Non-Skilled Workforce",
       desc:
         "We deploy trained manpower across construction, manufacturing, and facility management sectors:",
       items: [
@@ -52,9 +52,8 @@ export default function Service() {
       desc:
         "We provide trained paramedical and support professionals for essential healthcare services:",
       items: [
-        "Lab Technicians",
-        "Radiographer",
-        "OT Technicians",
+        "Laboratory Technicians & Radiographers",
+        "Operation Theatre (OT) Technicians",
         "Emergency Medical Staff",
         "Physiotherapy Assistants",
       ],

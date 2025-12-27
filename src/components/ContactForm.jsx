@@ -1,75 +1,105 @@
-
-import React from "react";
+import React, { useState } from "react";
 
 export default function ContactForm() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const toEmail = "show02288@gmail.com"; // 👈 receiver email
+
+    const emailSubject = encodeURIComponent(form.subject || "New Contact Message");
+
+    const emailBody = encodeURIComponent(
+      `
+${form.message}
+
+
+Best Regards,
+${form.name}
+ ${form.phone}
+${form.address}`
+    );
+
+    window.location.href = `mailto:${toEmail}?subject=${emailSubject}&body=${emailBody}`;
+  };
+
   return (
     <div className="container-xxl py-6" id="contact">
       <div className="container">
 
         {/* Heading */}
-        <div
-          className="mx-auto text-center wow fadeInUp"
-          data-wow-delay="0.1s"
-          style={{ maxWidth: "600px" }}
-        >
+        <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
           <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
             Get in Touch
           </div>
-          <h2 className="mb-5" style={{ fontFamily: "roboto" }}>
+          <h2 style={{ fontFamily: "roboto" }}>
             For manpower requirements, partnerships, or candidate support, reach out to us:
           </h2>
         </div>
 
-        {/* Form + Map Row */}
-        <div className="row g-5 align-items-stretch">
+        <div className="row g-5">
 
-          {/* Form Section */}
-          <div className="col-lg-6 d-flex">
-            <div className="service-item rounded h-100 p-4 w-100 d-flex flex-column">
+          {/* FORM */}
+          <div className="col-lg-6">
+            <div className="service-item rounded p-4 h-100">
 
-              <form className="flex-grow-1 d-flex flex-column">
-                <div className="row g-3 flex-grow-1">
+              <form onSubmit={handleSubmit}>
+                <div className="row g-3">
 
-                  {/* Name */}
                   <div className="col-md-6">
                     <div className="form-floating">
-                      <input type="text" className="form-control" id="name" placeholder="Your Name" />
-                      <label htmlFor="name">Your Name</label>
+                      <input className="form-control" id="name" onChange={handleChange} required />
+                      <label>Your Name</label>
                     </div>
                   </div>
 
-                  {/* Email */}
                   <div className="col-md-6">
                     <div className="form-floating">
-                      <input type="email" className="form-control" id="email" placeholder="Your Email" />
-                      <label htmlFor="email">Your Email</label>
+                      <input type="phone" className="form-control" id="phone" onChange={handleChange} required />
+                      <label>Your Phone</label>
                     </div>
                   </div>
 
-                  {/* Address */}
                   <div className="col-12">
                     <div className="form-floating">
-                      <input type="text" className="form-control" id="address" placeholder="Address" />
-                      <label htmlFor="address">Address</label>
+                      <input className="form-control" id="address" onChange={handleChange} />
+                      <label>Address</label>
                     </div>
                   </div>
 
-                  {/* Message */}
-                  <div className="col-12 flex-grow-1">
-                    <div className="form-floating h-100">
+                  <div className="col-12">
+                    <div className="form-floating">
+                      <input className="form-control" id="subject" onChange={handleChange} required />
+                      <label>Subject</label>
+                    </div>
+                  </div>
+
+                  <div className="col-12">
+                    <div className="form-floating">
                       <textarea
-                        className="form-control h-100"
-                        placeholder="Leave a message here"
+                        className="form-control"
                         id="message"
-                        style={{ minHeight: "150px" }}
+                        style={{ height: "150px" }}
+                        onChange={handleChange}
+                        required
                       ></textarea>
-                      <label htmlFor="message">Message</label>
+                      <label>Message</label>
                     </div>
                   </div>
 
-                  {/* Submit Button */}
                   <div className="col-12">
-                    <button className="btn btn-outline-primary w-100 py-3" type="submit">
+                    <button type="submit" className="btn btn-outline-primary w-100 py-3">
                       Send Message
                     </button>
                   </div>
@@ -125,9 +155,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-
         </div>
-
       </div>
     </div>
   );

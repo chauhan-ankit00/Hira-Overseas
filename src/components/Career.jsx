@@ -1,40 +1,20 @@
+
+
 import React, { useEffect, useMemo, useState } from "react";
 import { supabase } from "../supabaseClient";
 import "./Career.css";
 
 export default function CareerPage() {
+  /* ================= STATES ================= */
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  /* ===== FETCH JOBS FROM SUPABASE ===== */
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("jobs")
-          .select("*")
-          .order("created_at", { ascending: false });
+  // Responsive pagination
+  const [jobsPerPage, setJobsPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
 
-        if (error) throw error;
-
-        setJobs(data || []);
-      } catch (err) {
-        console.error("Error fetching jobs:", err);
-        setError("Failed to load job openings.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, []);
-
-  const roleOptions = useMemo(
-    () => jobs.map((j) => j.title),
-    [jobs]
-  );
-
+  // Modal
   const [showModal, setShowModal] = useState(false);
   const [selectedRole, setSelectedRole] = useState("");
 
@@ -50,6 +30,67 @@ export default function CareerPage() {
     resume: null,
   });
 
+  /* ================= FETCH JOBS ================= */
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("jobs")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        setJobs(data || []);
+        setCurrentPage(1);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load job openings.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  /* ================= RESPONSIVE JOBS PER PAGE ================= */
+  useEffect(() => {
+    const updateJobsPerPage = () => {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        setJobsPerPage(1); // Mobile
+      } else if (width < 992) {
+        setJobsPerPage(2); // Tablet
+      } else {
+        setJobsPerPage(6); // Desktop
+      }
+    };
+
+    updateJobsPerPage();
+    window.addEventListener("resize", updateJobsPerPage);
+
+    return () => window.removeEventListener("resize", updateJobsPerPage);
+  }, []);
+
+  // Reset page when layout changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [jobsPerPage]);
+
+  /* ================= PAGINATION LOGIC ================= */
+  const totalPages = Math.ceil(jobs.length / jobsPerPage);
+
+  const paginatedJobs = useMemo(() => {
+    const start = (currentPage - 1) * jobsPerPage;
+    const end = start + jobsPerPage;
+    return jobs.slice(start, end);
+  }, [jobs, currentPage, jobsPerPage]);
+
+  const roleOptions = useMemo(() => jobs.map((j) => j.title), [jobs]);
+
+  /* ================= MODAL HANDLERS ================= */
   const openModal = (role = "") => {
     setSelectedRole(role);
     setForm((prev) => ({ ...prev, role }));
@@ -64,13 +105,13 @@ export default function CareerPage() {
 
   const onChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === "resume") {
-      setForm((prev) => ({ ...prev, resume: files[0] }));
-    } else {
-      setForm((prev) => ({ ...prev, [name]: value }));
-    }
+    setForm((prev) => ({
+      ...prev,
+      [name]: name === "resume" ? files[0] : value,
+    }));
   };
 
+  /* ================= SUBMIT FORM ================= */
   const submitForm = async (e) => {
     e.preventDefault();
 
@@ -80,9 +121,8 @@ export default function CareerPage() {
         return;
       }
 
-      /* ================= UPLOAD RESUME ================= */
-      const fileExt = form.resume.name.split(".").pop();
-      const fileName = `${Date.now()}-${Math.random()}.${fileExt}`;
+      const ext = form.resume.name.split(".").pop();
+      const fileName = `${Date.now()}-${Math.random()}.${ext}`;
       const filePath = `applications/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
@@ -91,46 +131,38 @@ export default function CareerPage() {
 
       if (uploadError) throw uploadError;
 
-      /* ================= GET FILE URL ================= */
-      const { data: urlData } = supabase.storage
+      const { data } = supabase.storage
         .from("resumes")
         .getPublicUrl(filePath);
 
-      const resumeUrl = urlData.publicUrl;
-
-      /* ================= SAVE APPLICATION ================= */
-      const { error: insertError } = await supabase
-        .from("applications")
-        .insert([
-          {
-            name: form.name,
-            email: form.email,
-            role: form.role || selectedRole,
-            experience_years: Number(form.experienceYears),
-            education: form.education,
-            age: Number(form.age),
-            languages: form.languages,
-            message: form.message,
-            resume_url: resumeUrl,
-          },
-        ]);
-
-      if (insertError) throw insertError;
+      await supabase.from("applications").insert([
+        {
+          name: form.name,
+          email: form.email,
+          role: form.role || selectedRole,
+          experience_years: Number(form.experienceYears),
+          education: form.education,
+          age: Number(form.age),
+          languages: form.languages,
+          message: form.message,
+          resume_url: data.publicUrl,
+        },
+      ]);
 
       alert("Your CV has been submitted successfully!");
       closeModal();
     } catch (err) {
-      console.error("Submission error:", err);
+      console.error(err);
       alert("Something went wrong. Please try again.");
     }
   };
 
-
+  /* ================= RENDER ================= */
   return (
     <div className="container-xxl py-6" id="career">
       <div className="container">
 
-        {/* ===== HEADER ===== */}
+        {/* HEADER */}
         <div className="text-center mb-5">
           <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
             Build Your Global Career
@@ -140,45 +172,23 @@ export default function CareerPage() {
           </h2>
         </div>
 
-        {/* ===== STATES ===== */}
-        {loading && (
-          <div className="text-center py-5">Loading job openings...</div>
+        {/* STATES */}
+        {loading && <div className="text-center py-5">Loading jobs...</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
+
+        {!loading && paginatedJobs.length === 0 && (
+          <div className="text-center py-5">No jobs available.</div>
         )}
 
-        {error && (
-          <div className="alert alert-danger text-center">{error}</div>
-        )}
-
-        {!loading && jobs.length === 0 && (
-          <div className="text-center py-5">
-            No job openings available at the moment.
-          </div>
-        )}
-
-        {/* ===== JOB CARDS ===== */}
-        <div
-          className={`row g-4 ${jobs.length <=2 ? "justify-content-center" : ""
-            }`}
-        >
-
-          {jobs.map((job) => (
-            <div
-              key={job.id}
-              className={`d-flex ${jobs.length === 1
-                  ? "col-lg-6 col-md-8 col-12"
-                  : "col-lg-4 col-md-6 col-12"
-                }`}
-            >
-
+        {/* JOB CARDS */}
+        <div className="row g-4">
+          {paginatedJobs.map((job) => (
+            <div key={job.id} className="col-12 col-md-6 col-lg-4 d-flex">
               <div className="service-item rounded h-100 w-100 p-4 d-flex flex-column">
                 <div className="flex-grow-1">
-                  <h5 className="fw-bold text-dark">{job.title}</h5>
-
-                  <p className="text-muted mb-1">
-                    <strong>Location:</strong> {job.location}
-                  </p>
-
-                  <p className="text-muted mb-3">
+                  <h5 className="fw-bold">{job.title}</h5>
+                  <p><strong>Location:</strong> {job.location}</p>
+                  <p>
                     <strong>Type:</strong> {job.type} |{" "}
                     <strong>Exp:</strong> {job.experience}
                   </p>
@@ -202,10 +212,44 @@ export default function CareerPage() {
           ))}
         </div>
 
-        {/* ===== BOTTOM CTA ===== */}
+        {/* PAGINATION */}
+        {totalPages > 1 && (
+          <div className="d-flex justify-content-center mt-5 gap-2 flex-wrap">
+            <button
+              className="btn btn-outline-primary rounded-pill"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((p) => p - 1)}
+            >
+              Prev
+            </button>
+
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                className={`btn rounded-pill ${currentPage === i + 1
+                    ? "btn-primary"
+                    : "btn-outline-primary"
+                  }`}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              className="btn btn-outline-primary rounded-pill"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((p) => p + 1)}
+            >
+              Next
+            </button>
+          </div>
+        )}
+
+        {/* CTA */}
         <div className="text-center mt-5">
           <button
-            className="btn btn-outline-primary rounded-pill px-4 py-2"
+            className="btn btn-outline-primary rounded-pill px-4"
             onClick={() => openModal("")}
           >
             Submit CV →
@@ -213,7 +257,9 @@ export default function CareerPage() {
         </div>
       </div>
 
-      {/* ===== MODAL ===== */}
+      {/* MODAL */}
+
+
       {showModal && (
         <div
           className="cv-modal-backdrop"

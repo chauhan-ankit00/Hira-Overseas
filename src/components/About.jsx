@@ -15,28 +15,28 @@ export default function About() {
         <div className="row g-5 align-items-center">
 
           {/* Left Image */}
-          {/* <div className="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+          <div className="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
             <img
               className="img-fluid"
-              src="img/about.png"
+              src="img/about-us.png"
               alt="About"
-              style={{ borderRadius: "150px" }}
+              style={{ borderRadius: "100px", height:"600px",transform: "scaleX(1.15)" }}
             />
-          </div> */}
+          </div>
 
-          <div className="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+          {/* <div className="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
             <video
               className="img-fluid"
               autoPlay
               muted
               loop
               playsInline
-              style={{ borderRadius: "100px" }}
+              style={{ borderRadius: "100px", }}
             >
               <source src="img/about.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
+          </div> */}
 
 
           {/* Right Content */}

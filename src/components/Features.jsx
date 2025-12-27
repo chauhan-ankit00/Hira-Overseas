@@ -26,8 +26,8 @@ export default function Features() {
             </h2>
 
             <p style={{ fontSize: "18px" }}>
-              With licensed recruitment practices, thorough candidate evaluation, and a worldwide presence, we ensure a transparent and efficient pathway to international career opportunities.
-            </p>
+              With 10+ years of recruitment experience, we have successfully delivered workforce solutions across healthcare, engineering, and skilled trade sectors. We maintain a 90%+ success ratio, driven by role-specific screening and market-focused hiring practices. Our team has supported 1,000+ successful placements. We work with 50+ trusted employers who rely on us for consistent and timely hiring outcomes. Our recruitment process emphasizes compliance, skill validation, and deployment readiness. This experience allows us to meet urgent hiring demands while ensuring long-term workforce reliability.
+               </p>
           </div>
 
           {/* Right Section */}
