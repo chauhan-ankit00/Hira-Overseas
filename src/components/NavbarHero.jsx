@@ -7,13 +7,19 @@ export default function NavbarHero() {
   // 🔹 Background images
   const images = [
     "/img/1.jpg",
+    "/img/7.jpg",
     "/img/2.jpg",
+    "/img/5.jpg",
     "/img/3.jpg",
+    "/img/6.jpg",
     "/img/4.jpg",
+    
+    
+    
   ];
 
   const [current, setCurrent] = useState(0);
-  const [next, setNext] = useState(1);
+  // const [next, setNext] = useState(1);
   const [fade, setFade] = useState(false);
 
   // ⭐ Typing Animation
@@ -21,28 +27,29 @@ export default function NavbarHero() {
     "Global Talent. Delivered with Precision, simple peace of mind ";
   const [typedText, setTypedText] = useState("");
 
+   const nextIndex = (current + 1) % images.length;
+
   // 🔹 Preload images (prevents blank flash)
   useEffect(() => {
     images.forEach((src) => {
       const img = new Image();
       img.src = src;
     });
-  }, []);
+  }, [images]);
 
-  // 🔹 Smooth image cross-fade
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(true);
+// 🔹 Smooth cross-fade every 3s
+useEffect(() => {
+  const interval = setInterval(() => {
+    setFade(true); // start fade out
 
-      setTimeout(() => {
-        setCurrent(next);
-        setNext((next + 1) % images.length);
-        setFade(false);
-      },1000); // fade duration
-    }, 3000); // image change interval
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+      setFade(false); // fade in new image
+    }, 200); // fade duration
+  }, 3000);
 
-    return () => clearInterval(interval);
-  }, [next, images.length]);
+  return () => clearInterval(interval);
+}, [images.length]);
 
   // 🔹 Typing effect
   useEffect(() => {
@@ -108,38 +115,38 @@ export default function NavbarHero() {
           id="home"
           style={{ marginTop: "70px" }}
         >
-          {/* 🔥 BACKGROUND IMAGES (Cross-Fade) */}
-          <img
-            src={images[current]}
-            alt="Recruitment background"
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transition: "opacity 1s ease-in-out",
-              opacity: fade ? 0 : 1,
-              zIndex: -2,
-              filter: "brightness(0.6)",
-            }}
-          />
+         {/* 🔥 BACKGROUND IMAGES (Cross-Fade) */}
+<img
+  src={images[current]}
+  alt="Recruitment background"
+  style={{
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    transition: "opacity 1s ease-in-out",
+    opacity: fade ? 0 : 1,
+    zIndex: -2,
+    filter: "brightness(0.6)",
+  }}
+/>
 
-          <img
-            src={images[next]}
-            alt=""
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transition: "opacity 1s ease-in-out",
-              opacity: fade ? 1 : 0,
-              zIndex: -2,
-              filter: "brightness(0.6)",
-            }}
-          />
+{/* <img
+  src={images[nextIndex]}
+  alt=""
+  style={{
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    transition: "opacity 1s ease-in-out",
+    opacity: fade ? 1 : 0,
+    zIndex: -2,
+    filter: "brightness(0.6)",
+  }}
+/> */}
 
           {/* ===== CONTENT ===== */}
           <div className="container hero-content">
