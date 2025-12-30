@@ -16,7 +16,8 @@ export default function Footer() {
             <h5 className="text-white mb-4">Get In Touch</h5>
             <p>
               <i className="fa fa-map-marker-alt me-3"></i>
-              Sarai Jullena, New Delhi, India
+              CV Raman Marg, Sarai Jullena,
+New Friends Colony, New Delhi, Delhi 110025
             </p>
             <p>
               <i className="fa fa-phone-alt me-3"></i>
@@ -132,7 +133,7 @@ export default function Footer() {
               Designed By{" "}
               <a
                 className="border-bottom"
-                href="https://ankitchauhan.com"
+                href="https://www.linkedin.com/in/ankit-chauhan-b08a0a24b/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
