@@ -145,7 +145,7 @@ export default function NavbarHero() {
           <div className="container hero-content">
             <div className="row g-5 align-items-center">
               <div className="col-lg-6 text-center text-lg-start">
-                <h1 className="text-white mb-4" style={{ fontFamily: "roboto" }}>
+                <h1 className="text-white mb-4" >
                   {typedText}
                   <span className="typing-cursor"></span>
                 </h1>

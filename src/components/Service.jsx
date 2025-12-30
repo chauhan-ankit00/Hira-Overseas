@@ -73,7 +73,7 @@ export default function Service() {
           <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
             Our Services
           </div>
-          <h2 className="mb-5" style={{ fontFamily: "roboto" }}>
+          <h2 className="mb-5" >
             Providing Reliable Manpower for Mentioned below Sector
           </h2>
         </div>
@@ -100,7 +100,7 @@ export default function Service() {
                 </div>
 
                 <div className="p-4 flex-grow-1">
-                  <h5 className="mb-3" style={{ fontFamily: "roboto" }}>
+                  <h5 className="mb-3" >
                     {s.title}
                   </h5>
 
@@ -131,7 +131,7 @@ export default function Service() {
         <div className="mt-5 pt-5">
           <h2
             className="text-center mb-4"
-            style={{ fontFamily: "roboto", fontSize: "40px", fontWeight: "700", color: "#13203B" }}
+            style={{  fontSize: "40px", fontWeight: "700", color: "#13203B" }}
           >
             Recruitment Process
           </h2>
@@ -141,7 +141,7 @@ export default function Service() {
             <div className="col-md-6 col-lg-6 d-flex">
               <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
                 <div className="p-4 flex-grow-1">
-                  <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
+                  <h5 style={{  fontWeight: "700", marginBottom: "15px" }}>
                     Our streamlined process ensures accuracy and speed:
                   </h5>
                   <ol
@@ -170,7 +170,7 @@ export default function Service() {
             <div className="col-md-6 col-lg-6 d-flex">
               <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
                 <div className="p-4 flex-grow-1">
-                  <h5 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "15px" }}>
+                  <h5 style={{  fontWeight: "700", marginBottom: "15px" }}>
                     What We Offer
                   </h5>
                   <ul

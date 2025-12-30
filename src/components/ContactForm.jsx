@@ -43,7 +43,7 @@ ${form.address}`
           <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
             Get in Touch
           </div>
-          <h2 style={{ fontFamily: "roboto" }}>
+          <h2 >
             For manpower requirements, partnerships, or candidate support, reach out to us:
           </h2>
         </div>
@@ -114,7 +114,7 @@ ${form.address}`
           <div className="col-lg-6 d-flex">
             <div className="service-item rounded h-100 p-4 w-100 d-flex flex-column">
 
-              <h4 style={{ fontFamily: "roboto", fontWeight: "700", marginBottom: "10px" }}>
+              <h4 style={{  fontWeight: "700", marginBottom: "10px" }}>
                 Our Location
               </h4>
 

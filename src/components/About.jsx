@@ -20,7 +20,7 @@ export default function About() {
               className="img-fluid"
               src="img/about-us.png"
               alt="About"
-              style={{ borderRadius: "100px", height:"600px",transform: "scaleX(1.15)" }}
+              style={{ borderRadius: "100px", height:"600px" }}
             />
           </div>
 
@@ -41,7 +41,7 @@ export default function About() {
 
           {/* Right Content */}
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <h2 className="mb-4" style={{ fontFamily: "roboto" }}>
+            <h2 className="mb-4" >
               Connecting Skilled Talent With the World
             </h2>
 
@@ -65,7 +65,7 @@ export default function About() {
                   <i className="fa fa-user-tie text-white"></i>
                 </div>
                 <div className="ms-4">
-                  <h6 style={{ fontFamily: "roboto", fontSize: "20px" }}>
+                  <h6 style={{  fontSize: "20px" }}>
                     Mission
                   </h6>
                   <span style={{ fontSize: "18px" }}>
@@ -81,7 +81,7 @@ export default function About() {
                   <i className="fa fa-chart-line text-white"></i>
                 </div>
                 <div className="ms-4">
-                  <h6 style={{ fontFamily: "roboto", fontSize: "20px" }}>
+                  <h6 style={{ fontSize: "20px" }}>
                     Vision
                   </h6>
                   <span style={{ fontSize: "18px" }}>

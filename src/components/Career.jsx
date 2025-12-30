@@ -167,7 +167,7 @@ export default function CareerPage() {
           <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
             Build Your Global Career
           </div>
-          <h2 style={{ fontFamily: "roboto" }}>
+          <h2 >
             Submit your CV and access international opportunities
           </h2>
         </div>

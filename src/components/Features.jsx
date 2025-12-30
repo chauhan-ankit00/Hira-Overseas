@@ -21,7 +21,7 @@ export default function Features() {
             className="col-lg-5 wow fadeInUp"
             data-wow-delay="0.1s"
           >
-            <h2 className="mb-4" style={{ fontFamily: "roboto" }}>
+            <h2 className="mb-4" >
               Why People Choose Us? We Are Trusted & Award Wining Agency
             </h2>
 
@@ -40,7 +40,7 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-cubes text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", fontFamily: "roboto" }}>
+                  <h6 className="mb-0" style={{ fontSize: "20px", }}>
                     Licensed & Ethical Recruitment
                   </h6>
                 </div>
@@ -55,7 +55,7 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-percent text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", fontFamily: "roboto" }}>
+                  <h6 className="mb-0" style={{ fontSize: "20px",  }}>
                     Rigorous Screening Standards
                   </h6>
                 </div>
@@ -70,7 +70,7 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-award text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", fontFamily: "roboto" }}>
+                  <h6 className="mb-0" style={{ fontSize: "20px",  }}>
                     Accelerated Visa & Deployment
                   </h6>
                 </div>
@@ -85,7 +85,7 @@ export default function Features() {
                   <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
                     <i className="fa fa-smile-beam text-white"></i>
                   </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", fontFamily: "roboto" }}>
+                  <h6 className="mb-0" style={{ fontSize: "20px" }}>
                     Worldwide Network of Employers
                   </h6>
                 </div>
