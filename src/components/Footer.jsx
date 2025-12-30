@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../images/logo.png";
 export default function Footer() {
   return (
     <div
@@ -13,11 +13,31 @@ export default function Footer() {
 
           {/* Get In Touch */}
           <div className="col-md-6 col-lg-4">
+{/* 🔹 Logo + Company Name */}
+  <div className="d-flex align-items-center mb-4">
+    <img
+      src={logo}
+      alt="Hira Overseas Logo"
+      style={{
+        height: "45px",
+        width: "auto",
+        marginRight: "12px",
+      }}
+    />
+    <h4
+      className="text-white mb-0"
+      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+    >
+      Hira Overseas
+    </h4>
+  </div>
+
+
             <h5 className="text-white mb-4">Get In Touch</h5>
             <p>
               <i className="fa fa-map-marker-alt me-3"></i>
               CV Raman Marg, Sarai Jullena,
-New Friends Colony, New Delhi, Delhi 110025
+              New Friends Colony, New Delhi, Delhi 110025
             </p>
             <p>
               <i className="fa fa-phone-alt me-3"></i>
@@ -74,7 +94,7 @@ New Friends Colony, New Delhi, Delhi 110025
 
           {/* Quick Links */}
           <div className="col-md-6 col-lg-4">
-            <h5 className="text-white mb-4">Quick Links</h5>
+            <h5 className="text-white mb-4">Company</h5>
             <Link className="btn btn-link" to="/about">
               About Us
             </Link>
