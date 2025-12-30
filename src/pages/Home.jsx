@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Global Manpower Consultancy | Healthcare, Engineering & Skilled Workforce Recruitment</title>
+        <title>Hira Overseas: Global Manpower Consultancy | Healthcare, Engineering & Skilled Workforce Recruitment</title>
         <meta name="description" content="Premium international HR consultancy delivering qualified Doctors, Engineers, Nurses, Paramedical staff and skilled blue-collar workers to employers across the Middle East, Europe and Africa. Fast, compliant and reliable global staffing solutions." />
       </Helmet>
       <About />
@@ -24,7 +24,7 @@ export default function Home() {
       <Countries/>
       <Team />
       <Testimonial />
-      <Blog />
+      {/* <Blog /> */}
       
       <ContactForm />
     </>
