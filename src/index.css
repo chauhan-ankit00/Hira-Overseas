@@ -113,3 +113,23 @@ body, h1, h2, h3, h4, h5, h6 {
 .navbar-shrink .navbar-brand h1 {
   font-size: 26px !important;
 }
+
+/*Service item hover effect*/
+.service-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.service-item:hover {
+  transform: scale(1.05); /* increase size */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.team-item:hover {
+  transform: scale(1.05); /* increase size */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
