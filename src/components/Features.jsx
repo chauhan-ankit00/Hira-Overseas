@@ -8,7 +8,7 @@ export default function Features() {
 
         {/* Centered "Features" pill across the page */}
         <div className="text-center" style={{marginBottom:'50px'}}>
-          <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
+          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
             Features
           </div>
         </div>

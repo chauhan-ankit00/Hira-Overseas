@@ -70,7 +70,7 @@ export default function Service() {
           data-wow-delay="0.1s"
           style={{ maxWidth: "600px" }}
         >
-          <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
+          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
             Our Services
           </div>
           <h2 className="mb-5" >

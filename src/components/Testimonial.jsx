@@ -40,7 +40,7 @@ export default function Testimonial() {
           className="mx-auto text-center"
           style={{ maxWidth: "600px" }}
         >
-          <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
+          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
             Testimonial
           </div>
           <h2 className="mb-5">What Our Clients Say!</h2>

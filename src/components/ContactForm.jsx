@@ -40,7 +40,7 @@ ${form.address}`
 
         {/* Heading */}
         <div className="mx-auto text-center mb-5" style={{ maxWidth: "600px" }}>
-          <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
+          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
             Get in Touch
           </div>
           <h2 >

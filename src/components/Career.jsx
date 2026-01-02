@@ -164,7 +164,7 @@ export default function CareerPage() {
 
         {/* HEADER */}
         <div className="text-center mb-5">
-          <div className="d-inline-block border rounded-pill text-primary px-4 mb-3">
+          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
             Build Your Global Career
           </div>
           <h2 >
