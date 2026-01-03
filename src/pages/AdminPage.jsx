@@ -5,6 +5,8 @@ import ApplicationsDisplay from "../components/ApplicationsDisplay";
 import VideoUpload from "../components/VideoUpload";
 import UploadedVideoDisplay from "../components/UploadedVideoDisplay";
 import PostedJobDisplay from "../components/PostedJobDisplay";
+import TestimonialUploadForm from "../components/TestimonialUploadForm";
+import TestimonialsDisplay from "../components/TestimonialsDisplay";
 import "../components/Admin.css";
 
 const AdminPage = () => {
@@ -18,6 +20,10 @@ const AdminPage = () => {
         return <ApplicationsDisplay />;
       case "uploadVideo":
         return <VideoUpload />;
+      case "uploadTestimonial":
+        return <TestimonialUploadForm />;
+      case "viewTestimonials":
+        return <TestimonialsDisplay />;
       case "uploadedVideoDisplay":
         return <UploadedVideoDisplay />;
       case "postedJobDisplay":

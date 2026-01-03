@@ -6,7 +6,9 @@ const AdminSidebar = ({ setActiveTab, activeTab }) => {
   const tabs = [
     { id: "uploadJob", name: "Post Job" },
     { id: "uploadVideo", name: "Upload Video" },
-     { id: "viewApplications", name: "View Applications" },
+    { id: "uploadTestimonial", name: "Upload Testimonial" },
+    { id: "viewTestimonials", name: "View Testimonials" },
+    { id: "viewApplications", name: "View Applications" },
     { id: "uploadedVideoDisplay", name: "View Uploaded video" },
     { id: "postedJobDisplay", name: "View Posted Job" },
   ];
