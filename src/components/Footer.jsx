@@ -1,170 +1,168 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
+
 export default function Footer() {
+  const LINKS = [
+    { label: "About Us", to: "/about" },
+    { label: "Services", to: "/services" },
+    { label: "Career", to: "/career" },
+    { label: "Countries", to: "/countries" },
+    { label: "Testimonials", to: "/testimonial" },
+    { label: "Contact Us", to: "/contact" },
+  ];
+
+  const SOCIALS = [
+    { icon: "fab fa-facebook-f", href: "https://facebook.com" },
+    { icon: "fab fa-instagram", href: "https://instagram.com" },
+    { icon: "fab fa-linkedin-in", href: "https://linkedin.com" },
+    { icon: "fab fa-youtube", href: "https://youtube.com" },
+    { icon: "fab fa-twitter", href: "https://twitter.com" },
+  ];
+
   return (
-    <div
-      className="container-fluid bg-dark text-light footer pt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-      style={{ marginTop: "6rem" }}
-    >
-      <div className="container py-5">
-        <div className="row g-5 justify-content-between">
-
-          {/* Get In Touch */}
-          <div className="col-md-6 col-lg-4">
-{/* 🔹 Logo + Company Name */}
-  <div className="d-flex align-items-center mb-4">
-    <img
-      src={logo}
-      alt="Hira Overseas Logo"
-      style={{
-        height: "45px",
-        width: "auto",
-        marginRight: "12px",
-      }}
-    />
-    <h4
-      className="text-white mb-0"
-      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-    >
-      Hira Overseas
-    </h4>
-  </div>
-
-
-            <h5 className="text-white mb-4">Get In Touch</h5>
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          {/* Brand */}
+          <div className="footer-brand">
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+              <img src={logo} alt="Hira Overseas" style={{ height: 40, width: "auto", opacity: 0.85 }} />
+              <span className="brand-name" style={{ color: "white" }}>Hira <span style={{ color: "var(--accent)" }}>Overseas</span></span>
+            </div>
             <p>
-              <i className="fa fa-map-marker-alt me-3"></i>
-              CV Raman Marg, Sarai Jullena,
-              New Friends Colony, New Delhi, Delhi 110025
+              A global manpower consultancy connecting exceptional talent with leading employers
+              across the Middle East, Europe, and beyond.
             </p>
-            <p>
-              <i className="fa fa-phone-alt me-3"></i>
-              +91 9582414590
-            </p>
-            <p>
-              <i className="fa fa-envelope me-3"></i>
-              hiraenterprisesdel@gmail.com
-            </p>
-
-            <div className="d-flex pt-2">
-              <a
-                className="btn btn-outline-light btn-social me-2"
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a
-                className="btn btn-outline-light btn-social me-2"
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a
-                className="btn btn-outline-light btn-social me-2"
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-youtube"></i>
-              </a>
-              <a
-                className="btn btn-outline-light btn-social me-2"
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a
-                className="btn btn-outline-light btn-social"
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin-in"></i>
-              </a>
+            <div className="social-links">
+              {SOCIALS.map((s) => (
+                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="social-link">
+                  <i className={s.icon} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="col-md-6 col-lg-4">
-            <h5 className="text-white mb-4">Company</h5>
-            <Link className="btn btn-link" to="/about">
-              About Us
-            </Link>
-            <Link className="btn btn-link" to="/contact">
-              Contact Us
-            </Link>
-            <Link className="btn btn-link" to="/services">
-              Services
-            </Link>
-            <a className="btn btn-link" href="#">
-              Terms & Conditions
-            </a>
-            <Link className="btn btn-link" to="/career">
-              Career
-            </Link>
+          <div className="footer-col">
+            <h5>Navigation</h5>
+            <ul className="footer-links">
+              {LINKS.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to}>{l.label}</Link>
+                </li>
+              ))}
+
+              {/* Admin Login Link */}
+              <li>
+                <Link to="/admin">Admin Login</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="footer-col">
+            <h5>Our Services</h5>
+            <ul className="footer-links">
+              {["Medical & Healthcare", "Engineering & Technical", "Skilled Workforce", "Paramedical Staff", "Visa Processing"].map((s) => (
+                <li key={s}><a href="/services">{s}</a></li>
+              ))}
+            </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="col-md-6 col-lg-4">
-            <h5 className="text-white mb-4">Newsletter</h5>
-            <p>
-              Subscribe to receive updates, job alerts, and overseas
-              opportunities directly in your inbox.
+          <div className="footer-col">
+            <h5>Newsletter</h5>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", marginBottom: 0 }}>
+              Subscribe for job alerts, updates, and overseas opportunities.
             </p>
-
-            <div className="position-relative w-100 mt-3">
-              <input
-                className="form-control border-0 rounded-pill w-100 ps-4 pe-5"
-                type="email"
-                placeholder="Your Email"
-                style={{ height: "48px" }}
-              />
-              <button
-                type="button"
-                className="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"
-              >
-                <i className="fa fa-paper-plane text-primary fs-4"></i>
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="container">
-        <div className="copyright">
-          <div className="row">
-            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy;{" "}
-              <a className="border-bottom" href="#">
-                HiraOverseas.com
-              </a>
-              , All Rights Reserved.
-              <br />
-              Designed By{" "}
-              <a
-                className="border-bottom"
-                href="https://www.linkedin.com/in/ankit-chauhan-b08a0a24b/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ankit Chauhan
-              </a>
+            <div className="newsletter-form">
+              <input type="email" placeholder="Your email address" />
+              <button>Subscribe</button>
             </div>
 
-            <div className="col-md-6 text-center text-md-end"></div>
+
+            <div style={{ marginTop: 28 }}>
+              <p
+                style={{
+                  fontSize: "0.78rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: 14,
+                }}
+              >
+                Head Office
+              </p>
+
+              {/* Location */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 10,
+                  marginBottom: 12,
+                  color: "rgba(255,255,255,0.55)",
+                  fontSize: "0.88rem",
+                  lineHeight: 1.7,
+                }}
+              >
+                <i className="fas fa-map-marker-alt" style={{ marginTop: 5 }}></i>
+                <p style={{ margin: 0, color: "rgba(255,255,255,0.55)" }}>
+                  CV Raman Marg, Sarai Jullena,<br />
+                  New Friends Colony,<br />
+                  New Delhi, Delhi 110025
+                </p>
+              </div>
+
+              {/* Phone */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  marginBottom: 10,
+                  color: "rgba(255,255,255,0.55)",
+                  fontSize: "0.88rem",
+                }}
+              >
+                <i className="fas fa-phone-alt"></i>
+                <a
+                  href="tel:+919999999999"
+                  style={{ color: "rgba(255,255,255,0.55)", textDecoration: "none" }}
+                >
+                  +91 99999 99999
+                </a>
+              </div>
+
+              {/* Email */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  color: "rgba(255,255,255,0.55)",
+                  fontSize: "0.88rem",
+                }}
+              >
+                <i className="fas fa-envelope"></i>
+                <a
+                  href="mailto:info@hiraoverseas.com"
+                  style={{ color: "rgba(255,255,255,0.55)", textDecoration: "none" }}
+                >
+                  info@hiraoverseas.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div className="footer-bottom">
+
+          <p>&copy; {new Date().getFullYear()} <a href="/">HiraOverseas.com</a>. All Rights Reserved.</p>
+          <p>Designed by <a href="https://www.linkedin.com/in/ankit-chauhan-b08a0a24b/" target="_blank" rel="noopener noreferrer">Ankit Chauhan</a></p>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }

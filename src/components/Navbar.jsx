@@ -1,144 +1,120 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../images/logo.png";
 
 export default function Navbar() {
   const location = useLocation();
-  const [activeSection, setActiveSection] = useState("home");
-  
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const path = location.pathname;
-    if (path === "/") setActiveSection("home");
-    else if (path === "/about") setActiveSection("about");
-    else if (path === "/services") setActiveSection("service");
-    else if (path === "/career") setActiveSection("career");
-    else if (path === "/testimonial") setActiveSection("testinomial");
-    else if (path === "/countries") setActiveSection("countries");
-    else if (path === "/contact") setActiveSection("contact");
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/services", label: "Services" },
+    { to: "/career", label: "Career" },
+    { to: "/countries", label: "Countries" },
+    { to: "/testimonial", label: "Testimonials" },
+    { to: "/contact", label: "Contact" },
+  ];
 
-    // 🔹 Close mobile menu on route change
-    const collapseEl = document.getElementById("navbarCollapse");
-    if (collapseEl && collapseEl.classList.contains("show")) {
-      collapseEl.classList.remove("show");
-    }
-  }, [location]);
-
-  const getLinkClass = (id) =>
-    `nav-item nav-link ${activeSection === id ? "fw-bold" : ""}`;
-
-  const getLinkColor = (id) =>
-    activeSection === id ? "#3c51ef" : "#0E2E50";
-
-  // 🔹 Close menu on link click (mobile)
-  const closeMenu = () => {
-    const collapseEl = document.getElementById("navbarCollapse");
-    if (collapseEl && collapseEl.classList.contains("show")) {
-      collapseEl.classList.remove("show");
-    }
-  };
+  const isActive = (to) =>
+    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
 
   return (
     <>
-      {/* ============== CSS (UNCHANGED) ============== */}
       <style>{`
-        .custom-navbar {
-          position: fixed;
-          top: 0;
-          width: 100%;
-          z-index: 999;
-          background: #ffffff;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-          display: flex;
-          align-items: center;
-          height: 100%;
-        }
-
-        .navbar-nav .nav-link {
-          transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-          color: #3c51ef !important;
-        }
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: #ffffff;
-    padding: 12px 16px;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-}
-
         @media (max-width: 768px) {
-          .navbar-brand img {
-            height: 52px !important;
+          .mobile-menu {
+            position: fixed;
+            top: 72px; left: 0; right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
           }
-          .navbar-brand h1 {
-            font-size: 22px !important;
+          .mobile-menu a {
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            color: var(--mid);
+            font-size: 0.95rem;
+            display: block;
           }
-            
+          .mobile-menu a.active,
+          .mobile-menu a:hover { background: var(--light-bg); color: var(--primary); }
+          .hamburger { display: flex !important; }
+          .nav-links, .nav-cta { display: none !important; }
+        }
+        .hamburger {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+        }
+        .hamburger span {
+          display: block; width: 24px; height: 2px;
+          background: var(--dark);
+          border-radius: 2px;
+          transition: all 0.25s;
         }
       `}</style>
-      {/* ============================================= */}
 
-      <nav
-        className="navbar navbar-expand-lg px-4 px-lg-5 custom-navbar"
-        style={{ height: "72px" }}
-      >
-        {/* ===== BRAND (UNCHANGED) ===== */}
-        <Link to="/" className="navbar-brand p-0">
-          <img
-            src={logo}
-            alt="Hira Overseas Logo"
-            style={{
-              height: "68px",
-              width: "auto",
-              objectFit: "contain",
-              marginRight: "12px",
-            }}
-          />
-          <h1
-            className="m-0"
-            style={{
-              fontFamily: "roboto",
-              fontSize: "26px",
-              fontWeight: "600",
-              color: "black",
-              lineHeight: "1",
-            }}
-          >
-            Hira Overseas
-          </h1>
-        </Link>
+      <nav className="navbar">
+        <div className="container">
+          <div className="navbar-inner">
+            <Link to="/" className="navbar-brand">
+              <img src={logo} alt="Hira Overseas" className="brand-logo" />
+              <span className="brand-name">Hira <span>Overseas</span></span>
+            </Link>
 
-        {/* Toggle */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span className="fa fa-bars" />
-        </button>
+            <ul className="nav-links">
+              {links.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className={isActive(l.to) ? "active" : ""}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
 
-        {/* ===== MENU ===== */}
-        <div className="collapse navbar-collapse" id="navbarCollapse">
-          <div className="navbar-nav ms-auto py-0">
-            <Link to="/" onClick={closeMenu} className={getLinkClass("home")} style={{ color: getLinkColor("home") }}>Home</Link>
-            <Link to="/about" onClick={closeMenu} className={getLinkClass("about")} style={{ color: getLinkColor("about") }}>About Us</Link>
-            <Link to="/services" onClick={closeMenu} className={getLinkClass("service")} style={{ color: getLinkColor("service") }}>Services</Link>
-            <Link to="/career" onClick={closeMenu} className={getLinkClass("career")} style={{ color: getLinkColor("career") }}>Career</Link>
-            <Link to="/countries" onClick={closeMenu} className={getLinkClass("countries")} style={{ color: getLinkColor("countries") }}>Countries</Link>
-            <Link to="/testimonial" onClick={closeMenu} className={getLinkClass("testinomial")} style={{ color: getLinkColor("testinomial") }}>Testinomial</Link>
-            <Link to="/contact" onClick={closeMenu} className={getLinkClass("contact")} style={{ color: getLinkColor("contact") }}>Contact</Link>
-            <Link to="/admin" className={getLinkClass("admin")}>Admin Panel</Link>
+            <Link to="/contact" className="btn btn-primary nav-cta">
+              Request Manpower →
+            </Link>
+
+            <button
+              className="hamburger"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
         </div>
       </nav>
+
+      {menuOpen && (
+        <div className="mobile-menu">
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={isActive(l.to) ? "active" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <Link to="/contact" className="btn btn-primary" style={{ marginTop: 8 }} onClick={() => setMenuOpen(false)}>
+            Request Manpower →
+          </Link>
+        </div>
+      )}
     </>
   );
 }

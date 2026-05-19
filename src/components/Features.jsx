@@ -1,119 +1,103 @@
-
 import React from "react";
+
+const FEATURES = [
+  {
+    icon: "fa fa-shield-alt",
+    title: "Licensed & Ethical Recruitment",
+    desc: "Full legal compliance and strict ethical standards — transparent processes with zero hidden charges.",
+  },
+  {
+    icon: "fa fa-microscope",
+    title: "Rigorous Screening Standards",
+    desc: "Multi-stage evaluation including skill verification, background checks, and role-specific assessments.",
+  },
+  {
+    icon: "fa fa-rocket",
+    title: "Accelerated Visa & Deployment",
+    desc: "Dedicated documentation team ensures fast, hassle-free visa approvals and timely international deployment.",
+  },
+  {
+    icon: "fa fa-globe",
+    title: "Worldwide Employer Network",
+    desc: "Partnerships with leading organisations across the Middle East, Europe, and global regions.",
+  },
+];
+
+const STATS = [
+  { num: "10+", label: "Years Experience" },
+  { num: "90%+", label: "Success Ratio" },
+  { num: "1000+", label: "Placements" },
+  { num: "50+", label: "Trusted Employers" },
+];
 
 export default function Features() {
   return (
-    <div className="container-xxl py-4">
+    <section className="section" id="features">
       <div className="container">
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: 24,
+    }}
+  >
+    <div className="pill-label">
+      Why Choose Us
+    </div>
+  </div>
+        <div className="grid-2" style={{ gap: 72, alignItems: "center" }}>
 
-        {/* Centered "Features" pill across the page */}
-        <div className="text-center" style={{marginBottom:'50px'}}>
-          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
-            Features
-          </div>
-        </div>
 
-        {/* Two columns start at the same vertical level */}
-        <div className="row g-5 align-items-start">
+          {/* Left */}
+          <div>
 
-          {/* Left Section */}
-          <div
-            className="col-lg-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-          >
-            <h2 className="mb-4" >
-              Why People Choose Us? We Are Trusted & Award Wining Agency
+            <h2 className="section-title">
+              Trusted &amp; Award-Winning Recruitment Agency
             </h2>
+            <p style={{ fontSize: "1rem", lineHeight: 1.8, marginBottom: 36 }}>
+              With 10+ years of recruitment experience, we have successfully delivered
+              workforce solutions across healthcare, engineering, and skilled trade sectors.
+              Our market-focused hiring practices and rigorous compliance standards set us apart.
+            </p>
 
-            <p style={{ fontSize: "18px" }}>
-              With 10+ years of recruitment experience, we have successfully delivered workforce solutions across healthcare, engineering, and skilled trade sectors. We maintain a 90%+ success ratio, driven by role-specific screening and market-focused hiring practices. Our team has supported 1,000+ successful placements. We work with 50+ trusted employers who rely on us for consistent and timely hiring outcomes. Our recruitment process emphasizes compliance, skill validation, and deployment readiness. This experience allows us to meet urgent hiring demands while ensuring long-term workforce reliability.
-               </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
+              {STATS.map((s) => (
+                <div key={s.label} style={{
+                  background: "var(--light-bg)",
+                  borderRadius: "var(--radius-md)",
+                  padding: "20px",
+                  border: "1px solid var(--border)"
+                }}>
+                  <div style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.9rem",
+                    fontWeight: 700,
+                    color: "var(--primary)",
+                    lineHeight: 1
+                  }}>{s.num}</div>
+                  <div style={{ fontSize: "0.8rem", color: "var(--muted)", marginTop: 6, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Right Section */}
-          <div className="col-lg-7">
-            <div className="row g-5 justify-content-center">
-
-              {/* Feature Item 1 */}
-              <div className="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-cubes text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", }}>
-                    Licensed & Ethical Recruitment
-                  </h6>
+          {/* Right */}
+          <div className="features-grid">
+            {FEATURES.map((f, i) => (
+              <div className="feature-card" key={i}>
+                <div className="feature-icon">
+                  <i className={f.icon} />
                 </div>
-                <span style={{ fontSize: "18px" }}>
-                  We operate with full legal compliance and strict ethical standards, ensuring transparent processes with zero hidden charges.
-                </span>
+                <h4>{f.title}</h4>
+                <p>{f.desc}</p>
               </div>
-
-              {/* Feature Item 2 */}
-              <div className="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-percent text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px",  }}>
-                    Rigorous Screening Standards
-                  </h6>
-                </div>
-                <span style={{ fontSize: "18px" }}>
-                  Every candidate undergoes a multi-stage evaluation, including skill verification, background checks, and role-specific assessments for the highest placement quality.
-                </span>
-              </div>
-
-              {/* Feature Item 3 */}
-              <div className="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-award text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px",  }}>
-                    Accelerated Visa & Deployment
-                  </h6>
-                </div>
-                <span style={{ fontSize: "18px" }}>
-                  Our dedicated documentation and processing team ensures fast, hassle-free visa approvals and timely international deployment.
-                </span>
-              </div>
-
-              {/* Feature Item 4 */}
-              <div className="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-smile-beam text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px" }}>
-                    Worldwide Network of Employers
-                  </h6>
-                </div>
-                <span style={{ fontSize: "18px" }}>
-                  We partner with leading healthcare, engineering, and technical organizations across the Middle East, Europe, and other global regions to provide diverse opportunities.
-                </span>
-              </div>
-
-              {/* Feature Item 5 */}
-              {/* <div className="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                <div className="d-flex align-items-center mb-3">
-                  <div className="flex-shrink-0 btn-square bg-primary rounded-circle me-3 d-flex justify-content-center align-items-center">
-                    <i className="fa fa-user-tie text-white"></i>
-                  </div>
-                  <h6 className="mb-0" style={{ fontSize: "20px", fontFamily: "roboto" }}>
-                    End-to-End Candidate Management
-                  </h6>
-                </div>
-                <span style={{ fontSize: "18px" }}>
-                  From application and interviews to documentation, travel assistance, and post-placement support—we guide candidates through every step of their overseas journey.
-                </span>
-              </div> */}
-
-            </div>
+            ))}
           </div>
 
         </div>
       </div>
-    </div>
+    </section>
   );
 }

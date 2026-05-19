@@ -1,209 +1,113 @@
 import React from "react";
 
+const SERVICES = [
+  {
+    icon: "fa fa-user-md",
+    title: "Medical & Healthcare",
+    desc: "We supply qualified and licensed professionals:",
+    items: ["Doctors & Specialists", "Registered & Specialist Nurses", "Clinical Technologists & Allied Health"],
+    note: "Clinical competence, global compliance, and employer-focused matching.",
+  },
+  {
+    icon: "fa fa-cogs",
+    title: "Engineering & Technical",
+    desc: "Certified technical professionals including:",
+    items: ["Mechanical, Electrical & Civil Engineers", "IT & Software Engineers", "Plant, Maintenance & Technical Technicians"],
+    note: "Each candidate undergoes skill verification and background evaluation.",
+  },
+  {
+    icon: "fa fa-hard-hat",
+    title: "Skilled & Non-Skilled Workforce",
+    desc: "Trained manpower across construction, manufacturing, and facility management:",
+    items: ["Electricians, Plumbers, Masons", "Welders, Steel Fixers", "AC & HVAC Technicians", "Heavy Vehicle Drivers & General Labour"],
+    note: "Trade-tested and mobilised quickly for urgent project demands.",
+  },
+  {
+    icon: "fa fa-heartbeat",
+    title: "Paramedical & Support Staff",
+    desc: "Trained professionals for essential healthcare services:",
+    items: ["Laboratory Technicians & Radiographers", "Operation Theatre (OT) Technicians", "Emergency Medical Staff", "Physiotherapy Assistants"],
+    note: "Ensuring dependable assistance and skilled clinical support.",
+  },
+];
+
+const PROCESS = [
+  { step: 1, title: "Requirement Analysis", desc: "Understanding your workforce needs in detail" },
+  { step: 2, title: "Candidate Sourcing & Screening", desc: "Targeted search across our extensive network" },
+  { step: 3, title: "Trade Test & Skills Evaluation", desc: "Rigorous multi-stage competency assessment" },
+  { step: 4, title: "Employer Interview Coordination", desc: "Seamless scheduling and interview management" },
+  { step: 5, title: "Medical & Document Clearance", desc: "Comprehensive health checks and paperwork" },
+  { step: 6, title: "Visa Processing & Compliance", desc: "End-to-end visa and legal compliance support" },
+  { step: 7, title: "Deployment & Travel Management", desc: "Coordinated logistics for smooth mobilisation" },
+  { step: 8, title: "Post-Placement Support", desc: "Ongoing support after successful deployment" },
+];
+
 export default function Service() {
-  const services = [
-    {
-      icon: "fa fa-user-tie fa-2x",
-      delay: "0.1s",
-      title: "Medical & Healthcare Recruitment",
-      desc: "We supply qualified and licensed professionals:",
-      items: [
-        "Doctors & Specialists",
-        "Registered & Specialist Nurses",
-        "Clinical Technologists & Allied Health Professionals",
-       
-      ],
-      other:
-        "Our medical sourcing ensures clinical competence, global compliance, and employer-focused matching.",
-    },
-    {
-      icon: "fa fa-cogs fa-2x",
-      delay: "0.1s",
-      title: "Engineering & Technical Recruitment",
-      desc: "We provide certified technical professionals, including:",
-      items: [
-        "Mechanical, Electrical & Civil Engineers",
-        "IT & Software Engineers",
-        "Plant, Maintenance, and Technical Technicians",
-      ],
-      other: "Each candidate undergoes skill verification and background evaluation.",
-    },
-    {
-      icon: "fa fa-hard-hat fa-2x",
-      delay: "0.1s",
-      title: "Skilled and Non-Skilled Workforce",
-      desc:
-        "We deploy trained manpower across construction, manufacturing, and facility management sectors:",
-      items: [
-        "Electricians",
-        "Plumbers, Masons, Carpenter",
-        "Welders, Steel Fixers",
-        "AC & HVAC Technicians",
-        "Heavy Vehicle Drivers",
-        "General Helpers & Labour",
-      ],
-      other:
-        "Our skilled workforce is trade-tested and mobilised quickly for urgent project demands.",
-    },
-    {
-      icon: "fa fa-briefcase-medical fa-2x",
-      delay: "0.1s",
-      title: "Paramedical & Support Staff",
-      desc:
-        "We provide trained paramedical and support professionals for essential healthcare services:",
-      items: [
-        "Laboratory Technicians & Radiographers",
-        "Operation Theatre (OT) Technicians",
-        "Emergency Medical Staff",
-        "Physiotherapy Assistants",
-      ],
-      other: "Ensuring dependable assistance and skilled clinical support.",
-    },
-  ];
-
   return (
-    <div className="container-xxl py-6" id="service" >
-      <div className="container">
-        {/* SECTION 1: SERVICES */}
-        <div
-          className="mx-auto text-center wow fadeInUp"
-          data-wow-delay="0.1s"
-          style={{ maxWidth: "600px" }}
-        >
-          <div className="d-inline-block border border-primary rounded-pill text-primary px-4 mb-3">
-            Our Services
+    <>
+      {/* Services */}
+      <section className="section services-bg" id="service">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: 56 }}>
+            <div className="pill-label">Our Services</div>
+            <h2 className="section-title">Reliable Manpower Across Key Sectors</h2>
+            <p className="section-sub">
+              From healthcare to construction, we deliver pre-screened, deployment-ready talent worldwide.
+            </p>
           </div>
-          <h2 className="mb-5" >
-            Providing Reliable Manpower for Mentioned below Sector
-          </h2>
-        </div>
 
-        {/* Services Grid */}
-        <div className="row g-4 align-items-stretch">
-          {services.map((s, idx) => (
-            <div
-              className="col-lg-6 col-md-6 wow fadeInUp d-flex"
-              data-wow-delay={s.delay}
-              key={idx}
-            >
-              <div
-                className="service-item rounded h-100 d-flex flex-column w-100"
-                style={{ padding: "20px" }}
-              >
-                <div className="d-flex justify-content-between mb-3">
-                  <div className="service-icon">
-                    <i className={s.icon}></i>
+          <div className="grid-2">
+            {SERVICES.map((s, i) => (
+              <div className="service-card" key={i}>
+                <div className="service-icon-wrap">
+                  <i className={s.icon} />
+                </div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+                <ul className="service-list">
+                  {s.items.map((item, j) => <li key={j}>{item}</li>)}
+                </ul>
+                <p style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: 12, marginBottom: 0, fontStyle: "italic" }}>
+                  {s.note}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recruitment Process */}
+      <section className="section process-bg" id="process">
+        <div className="container">
+          <div className="grid-2" style={{ gap: 64, alignItems: "center" }}>
+            <div>
+              <div className="pill-label" style={{ background: "rgba(212,168,67,0.15)", color: "var(--accent-light)", borderColor: "rgba(212,168,67,0.25)" }}>
+                How We Work
+              </div>
+              <h2 style={{ color: "var(--white)", marginBottom: 16 }}>
+                Our Recruitment Process
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.6)", marginBottom: 36, fontSize: "1rem" }}>
+                A streamlined, 8-step process that ensures accuracy, speed, and compliance
+                for every international placement.
+              </p>
+              <a href="/contact" className="btn btn-accent">Start Hiring Today →</a>
+            </div>
+
+            <div>
+              {PROCESS.map((p) => (
+                <div className="process-step" key={p.step}>
+                  <div className="step-num">{p.step}</div>
+                  <div>
+                    <h4>{p.title}</h4>
+                    <p>{p.desc}</p>
                   </div>
-                  <a className="service-btn" href="#">
-                    <i className="fa fa-link fa-2x"></i>
-                  </a>
                 </div>
-
-                <div className="p-4 flex-grow-1">
-                  <h5 className="mb-3" >
-                    {s.title}
-                  </h5>
-
-                  <p style={{ fontSize: "17px", marginBottom: "8px" }}>
-                    {s.desc}
-                  </p>
-
-                  <ul
-                    style={{
-                      fontSize: "16px",
-                      color: "#333",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    {s.items.map((li, i) => (
-                      <li key={i}>{li}</li>
-                    ))}
-                  </ul>
-
-                  <p style={{ fontSize: "15px", color: "#555" }}>{s.other}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* SECTION 2: RECRUITMENT PROCESS + WHAT WE OFFER (two cards side-by-side) */}
-        <div className="mt-5 pt-5">
-          <h2
-            className="text-center mb-4"
-            style={{  fontSize: "40px", fontWeight: "700", color: "#13203B" }}
-          >
-            Recruitment Process
-          </h2>
-
-          <div className="row justify-content-center g-4">
-            {/* Card 1: Process */}
-            <div className="col-md-6 col-lg-6 d-flex">
-              <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
-                <div className="p-4 flex-grow-1">
-                  <h5 style={{  fontWeight: "700", marginBottom: "15px" }}>
-                    Our streamlined process ensures accuracy and speed:
-                  </h5>
-                  <ol
-                    style={{
-                      fontSize: "17px",
-                      lineHeight: "1.8",
-                      color: "#333",
-                      paddingLeft: "20px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    <li>Requirement Analysis</li>
-                    <li>Candidate Sourcing & Screening</li>
-                    <li>Trade Test & Skills Evaluation</li>
-                    <li>Employer Interview Coordination</li>
-                    <li>Medical & Document Clearance</li>
-                    <li>Visa Processing & Compliance</li>
-                    <li>Deployment & Travel Management</li>
-                    <li>Post-Placement Support</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: What We Offer */}
-            <div className="col-md-6 col-lg-6 d-flex">
-              <div className="service-item rounded h-100 d-flex flex-column w-100" style={{ padding: "20px" }}>
-                <div className="p-4 flex-grow-1">
-                  <h5 style={{  fontWeight: "700", marginBottom: "15px" }}>
-                    What We Offer
-                  </h5>
-                  <ul
-                    style={{
-                      fontSize: "17px",
-                      lineHeight: "1.8",
-                      color: "#333",
-                      paddingLeft: "20px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    <li>Verified and competent candidates</li>
-                    <li>Industry-specific selection</li>
-                    <li>Fast deployment timelines</li>
-                    <li>Transparent and compliant operations</li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-
-          {/* Centered CTA below the two cards */}
-          <div className="text-center mt-4">
-            <a
-              href="#contact"
-              className="btn btn-outline-primary rounded-pill px-4 py-2"
-              style={{ fontSize: "18px", fontWeight: "600" }}
-            >
-              Request Manpower →
-            </a>
-          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

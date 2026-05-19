@@ -19,14 +19,15 @@ import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 function Layout() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith("/admin");
+  const isHome = location.pathname === "/";
 
   return (
     <>
-      {/* ✅ Show public navbar only if NOT admin */}
       {!isAdmin && <Navbar />}
       {!isAdmin && <NavbarHero />}
 
-      <div style={{ paddingTop: !isAdmin ? "80px" : "0" }}>
+      {/* On home, hero handles its own top padding. Other pages need navbar offset */}
+      <div style={{ paddingTop: !isAdmin && !isHome ? "72px" : "0" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
@@ -35,8 +36,6 @@ function Layout() {
           <Route path="/testimonial" element={<TestimonialPage />} />
           <Route path="/countries" element={<CountriesPage />} />
           <Route path="/contact" element={<ContactPage />} />
-
-          {/* ✅ Admin route */}
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route
             path="/admin"
@@ -49,7 +48,6 @@ function Layout() {
         </Routes>
       </div>
 
-      {/* ✅ Footer only for public pages */}
       {!isAdmin && <Footer />}
     </>
   );

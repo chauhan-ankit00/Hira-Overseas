@@ -1,108 +1,49 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./CountriesSection.css";
+
+const COUNTRIES = [
+  { flag: "🇸🇦", name: "Saudi Arabia" },
+  { flag: "🇦🇪", name: "UAE" },
+  { flag: "🇶🇦", name: "Qatar" },
+  { flag: "🇰🇼", name: "Kuwait" },
+  { flag: "🇧🇭", name: "Bahrain" },
+  { flag: "🇴🇲", name: "Oman" },
+  { flag: "🇩🇪", name: "Germany" },
+  { flag: "🇬🇧", name: "United Kingdom" },
+  { flag: "🇳🇱", name: "Netherlands" },
+  { flag: "🇦🇺", name: "Australia" },
+  { flag: "🇲🇾", name: "Malaysia" },
+  { flag: "🇲🇻", name: "Maldives" },
+];
 
 export default function Countries() {
-  const countries = [
-    {
-      title: "United Arab Emirates",
-      text:
-        "Explore world-class healthcare and technical career opportunities in the UAE.",
-    },
-    {
-      title: "Saudi Arabia",
-      text:
-        "Saudi Arabia offers high-growth healthcare and engineering roles with tax-free benefits.",
-    },
-    {
-      title: "Qatar",
-      text:
-        "Qatar provides excellent opportunities in healthcare and infrastructure sectors.",
-    },
-    {
-      title: "Oman",
-      text:
-        "Build a rewarding career in Oman with a supportive work environment.",
-    },
-    {
-      title: "Kuwait",
-      text:
-        "Kuwait presents strong demand for skilled professionals.",
-    },
-    {
-      title: "Bahrain",
-      text:
-        "Join Bahrain’s dynamic workforce with diverse opportunities.",
-    },
-    {
-      title: "United Kingdom",
-      text:
-        "UK offers globally recognized pathways for professionals.",
-    },
-    {
-      title: "Germany",
-      text:
-        "Germany provides structured career growth with high standards.",
-    },
-    {
-      title: "Poland",
-      text:
-        "Poland offers stable opportunities across industries.",
-    },
-    {
-      title: "Romania",
-      text:
-        "Romania provides diverse openings in technical fields.",
-    },
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    speed: 800,
-    autoplaySpeed: 3000,
-    arrows: false,
-    pauseOnHover: false,
-    slidesToScroll: 1,
-    slidesToShow: 3, // ✅ DESKTOP DEFAULT
-
-    responsive: [
-      {
-        breakpoint: 992, // tablet
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600, // mobile
-        settings: {
-          slidesToShow: 1,
-          centerMode: true,
-          centerPadding: "16px",
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="container-xxl py-6 countries-wrapper" id="countries">
+    <section className="section services-bg" id="countries">
       <div className="container">
-        <h2 className="countries-title">Where Can You Start?</h2>
+        <div className="text-center" style={{ marginBottom: 56 }}>
+          <div className="pill-label">Global Reach</div>
+          <h2 className="section-title">Countries We Deploy To</h2>
+          <p className="section-sub">
+            Our workforce solutions span across the Middle East, Europe, Asia-Pacific,
+            and beyond — placing talent where it's needed most.
+          </p>
+        </div>
 
-        <Slider {...settings}>
-          {countries.map((c, i) => (
-            <div key={i} className="country-slide">
-              <div className="country-card">
-                <h5 className="country-title">{c.title}</h5>
-                <p className="country-text">{c.text}</p>
-              </div>
+        <div className="grid-auto">
+          {COUNTRIES.map((c) => (
+            <div className="country-chip" key={c.name}>
+              <span className="country-flag">{c.flag}</span>
+              <span>{c.name}</span>
             </div>
           ))}
-        </Slider>
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <p style={{ color: "var(--muted)", marginBottom: 20 }}>
+            Don't see your country? We handle custom deployments worldwide.
+          </p>
+          <a href="/contact" className="btn btn-primary">Enquire Now →</a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

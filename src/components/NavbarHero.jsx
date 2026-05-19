@@ -1,185 +1,95 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+const IMAGES = ["/img/1.jpg", "/img/7.jpg", "/img/2.jpg", "/img/5.jpg", "/img/3.jpg", "/img/6.jpg", "/img/4.jpg"];
+const FULL_TEXT = "Global Talent, Delivered with Precision";
+
 export default function NavbarHero() {
   const location = useLocation();
-
-  // 🔹 Background images
-  const images = [
-    "/img/1.jpg",
-    "/img/7.jpg",
-    "/img/2.jpg",
-    "/img/5.jpg",
-    "/img/3.jpg",
-    "/img/6.jpg",
-    "/img/4.jpg",
-    
-    
-    
-  ];
-
   const [current, setCurrent] = useState(0);
-  // const [next, setNext] = useState(1);
   const [fade, setFade] = useState(false);
-
-  // ⭐ Typing Animation
-  const fullText =
-    "Global Talent. Delivered with Precision, simple peace of mind ";
   const [typedText, setTypedText] = useState("");
 
-   const nextIndex = (current + 1) % images.length;
-
-  // 🔹 Preload images (prevents blank flash)
   useEffect(() => {
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, [images]);
+    IMAGES.forEach((src) => { const img = new Image(); img.src = src; });
+  }, []);
 
-// 🔹 Smooth cross-fade every 3s
-useEffect(() => {
-  const interval = setInterval(() => {
-    setFade(true); // start fade out
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(true);
+      setTimeout(() => { setCurrent((p) => (p + 1) % IMAGES.length); setFade(false); }, 600);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-    setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-      setFade(false); // fade in new image
-    }, 200); // fade duration
-  }, 3000);
-
-  return () => clearInterval(interval);
-}, [images.length]);
-
-  // 🔹 Typing effect
   useEffect(() => {
     let i = 0;
-    const speed = 50;
-
     const timer = setInterval(() => {
-      setTypedText(fullText.slice(0, i));
+      setTypedText(FULL_TEXT.slice(0, i));
       i++;
-      if (i > fullText.length) clearInterval(timer);
-    }, speed);
-
+      if (i > FULL_TEXT.length) clearInterval(timer);
+    }, 55);
     return () => clearInterval(timer);
   }, []);
 
+  if (location.pathname !== "/") return null;
+
   return (
-    <>
-      {/* ================= CSS ================= */}
-      <style>{`
-        .hero-header {
-          position: relative;
-          min-height: 100vh;
-          padding: 12rem 0 9rem 0;
-          overflow: hidden;
-        }
+    <section className="hero">
+      <div
+        className="hero-bg"
+        style={{
+          backgroundImage: `url(${IMAGES[current]})`,
+          opacity: fade ? 0 : 0.35,
+          transition: "opacity 0.8s ease",
+        }}
+      />
+      <div className="hero-overlay" />
 
-        .hero-header::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.45);
-          z-index: -1;
-        }
+      <div className="container hero-content">
+        <div style={{ maxWidth: 640 }}>
+          <div className="hero-eyebrow">Global Manpower Consultancy</div>
 
-        .hero-content {
-          position: relative;
-          z-index: 2;
-        }
+          <h1>
+            {typedText}
+            <span style={{
+              display: "inline-block", width: 3, height: "0.85em",
+              background: "var(--accent)", marginLeft: 6, verticalAlign: "middle",
+              animation: "blink 0.75s steps(1) infinite"
+            }} />
+          </h1>
 
-        .typing-cursor {
-          display: inline-block;
-          width: 2px;
-          background: #ffffff;
-          animation: blink 0.7s steps(1) infinite;
-          margin-left: 4px;
-        }
+          <style>{`@keyframes blink { 50% { opacity: 0; } }`}</style>
 
-        @keyframes blink {
-          50% { opacity: 0; }
-        }
+          <p className="hero-sub">
+            We provide highly qualified Doctors, Engineers, Nurses, Paramedical Staff,
+            and Skilled Tradesmen to leading institutions across the Middle East, Europe, and Africa.
+          </p>
 
-        @media (max-width: 768px) {
-          .hero-header {
-            padding: 9rem 0 6rem 0;
-          }
-        }
-      `}</style>
-      {/* ======================================= */}
+          <div className="hero-actions">
+            <Link to="/contact" className="btn btn-accent">
+              Request Manpower →
+            </Link>
+            <Link to="/services" className="btn btn-outline-white">
+              Our Services
+            </Link>
+          </div>
 
-      {location.pathname === "/" && (
-        <div
-          className="container-xxl hero-header"
-          id="home"
-          style={{ marginTop: "70px" }}
-        >
-         {/* 🔥 BACKGROUND IMAGES (Cross-Fade) */}
-<img
-  src={images[current]}
-  alt="Recruitment background"
-  style={{
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    transition: "opacity 1s ease-in-out",
-    opacity: fade ? 0 : 1,
-    zIndex: -2,
-    filter: "brightness(0.6)",
-  }}
-/>
-
-{/* <img
-  src={images[nextIndex]}
-  alt=""
-  style={{
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    transition: "opacity 1s ease-in-out",
-    opacity: fade ? 1 : 0,
-    zIndex: -2,
-    filter: "brightness(0.6)",
-  }}
-/> */}
-
-          {/* ===== CONTENT ===== */}
-          <div className="container hero-content">
-            <div className="row g-5 align-items-center">
-              <div className="col-lg-6 text-center text-lg-start">
-                <h1 className="text-white mb-4" >
-                  {typedText}
-                  <span className="typing-cursor"></span>
-                </h1>
-
-                <p
-                  className="text-white pb-3 animated zoomIn"
-                  style={{ fontSize: "20px" }}
-                >
-                  We provide highly qualified Doctors, Engineers, Nurses,
-                  Paramedical Staff, and Skilled Tradesmen to leading
-                  institutions across the world.
-                </p>
-
-                <div className="mt-4">
-                  <Link
-                    to="/contact"
-                    className="btn btn-primary rounded-pill px-4 py-2"
-                    style={{ fontSize: "18px", fontWeight: "600" }}
-                  >
-                    Request Manpower →
-                  </Link>
-                </div>
+          <div className="hero-stats">
+            {[
+              { num: "10+", label: "Years of Experience" },
+              { num: "1K+", label: "Successful Placements" },
+              { num: "50+", label: "Trusted Employers" },
+              { num: "90%", label: "Success Ratio" },
+            ].map((s) => (
+              <div className="stat-item" key={s.label}>
+                <div className="stat-num">{s.num}</div>
+                <div className="stat-label">{s.label}</div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 }
