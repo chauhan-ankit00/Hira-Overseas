@@ -1,0 +1,64 @@
+.team-item {
+  height: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.team-item:hover {
+  transform: translateY(-6px);
+}
+
+/* Image wrapper fixes height */
+.team-img-wrapper {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Uniform image behavior */
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* DEFAULT (desktop) */
+.team-img-wrapper {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ✅ TABLET FIX (768px – 991px) */
+@media (min-width: 410px) and (max-width: 768px) {
+  .team-img-wrapper {
+    height: 220px;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
+/* MOBILE (already slider, but keep safe) */
+@media (max-width: 767px) {
+  .team-img-wrapper {
+    height: 240px;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}

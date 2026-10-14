@@ -1,0 +1,18 @@
+/* ===== Reduce modal height on laptop & desktop ===== */
+@media (min-width: 992px) {
+  .blog-video-modal {
+    max-height: 80vh;
+  }
+
+  .blog-video-modal .modal-content {
+    max-height: 80vh;
+  }
+
+  .blog-video-modal .modal-body {
+    padding: 0.75rem;
+  }
+
+  .blog-video-modal video {
+    max-height: 65vh;
+  }
+}
