@@ -9,10 +9,10 @@ export default function About() {
           {/* Image */}
           <div className="about-img-wrap" style={{ paddingRight: 32 }}>
             <img src="img/about-us.png" alt="About Hira Overseas" />
-            <div className="about-badge">
+            {/* <div className="about-badge">
               <strong>10+</strong>
               <small>Years of Trust</small>
-            </div>
+            </div> */}
           </div>
 
           {/* Content */}
